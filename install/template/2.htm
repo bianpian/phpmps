@@ -1,0 +1,179 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<title>填写参数</title>
+<link href="style/style.css" rel=stylesheet type=text/css>
+<script  type="text/javascript" src="../js/jquery.js"></script>
+<style type="text/css">
+<!--
+.STYLE4 {	
+	font-family: "黑体";
+	font-weight: bold;
+}
+-->
+</style>
+<script language=javascript>
+function check(){
+	if(document.form.db_host.value==""){
+		alert('请输入数据库服务器地址！');
+		document.form.db_host.focus();
+		return false;
+	}
+	if(document.form.db_user.value==""){
+		alert('请输入数据库服务器用户名！');
+		document.form.db_user.focus();
+		return false;
+	}
+	if(document.form.db_name.value==""){
+		alert('请输入数据库！');
+		document.form.db_name.focus();
+		return false;
+	}
+	if(document.form.db_table.value==""){
+		alert('请输入数据库表前缀！');
+		document.form.db_table.focus();
+		return false;
+	}
+	if(document.form.admin.value==""){
+		alert('请输入管理员帐号！');
+		document.form.admin.focus();
+		return false;
+	}
+	if(document.form.password.value==""){
+		alert('请输入管理员密码！');
+		document.form.password.focus();
+		return false;
+	}
+	if(document.form.repassword.value==""){
+		alert('请输入重复密码！');
+		document.form.repassword.focus();
+		return false;
+	}
+	if(document.form.email.value==""){
+		alert('请输入管理员邮件！');
+		document.form.email.focus();
+		return false;
+	}
+	if(document.form.crypt.value==""){
+		alert('请输入加密字符串！');
+		document.form.crypt.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"><span class="STYLE4"><font size="+1" color="black">PHP信息发布系统--安装程序</font></span> <br/>
+</div>
+<br/>
+<table width="50%" border="0" align="center" cellpadding="0" cellspacing="1" class="tableborder">
+  <tr class="header">
+    <td height="25">&nbsp; 配置系统</td>
+  </tr>
+  <tr>
+    <td height="68" colspan="2" align="center" bgcolor="#FFFFFF">
+	
+        
+    <table width="100%" align="center" border="0" cellspacing="1" cellpadding="0" bgcolor="#DBEAF5">
+	<form id="form" name="form" method="post" action="index.php?step=3" onSubmit="return check()">
+      <tr bgcolor="#CED4E8" align="center">
+        <td width="131" height="25" bgcolor="#CED4E8">目录名称</td>
+        <?php if($parentid == 0){?>
+        <?}?>
+        <td width="367">参数</td>
+        </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 数据库服务器：</label></td>
+        <td>
+       &nbsp;&nbsp;
+<input name="db_host" type="text" id="db_host" value="localhost">
+       &nbsp;&nbsp; 数据库服务器地址</td>
+        </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 数据库用户名：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="db_user" type="text" id="db_user" value="root">
+  &nbsp;&nbsp; 数据库服务器帐号</td></tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 数据库密码：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="db_pass" type="text" id="db_pass">
+  &nbsp;&nbsp; 数据库服务器密码</td></tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 数据库名：</label></td>
+        <td>&nbsp;&nbsp;
+<input name="db_name" type="text" id="db_name" >
+&nbsp;&nbsp; 数据库名称</td>
+        </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 表前缀：</label></td>
+        <td>&nbsp;&nbsp;
+<input name="db_table" type="text" id="db_table" value="phpmps_">
+&nbsp;&nbsp; 数据库表前缀</td>
+        </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td colspan="2"><label> &nbsp;</label></td>
+        </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 管理员帐号：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="admin" type="text" id="admin" value="admin"></td></tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 管理员密码：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="password" type="text" id="password" value="admin"></td>
+      </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 重复密码：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="repassword" type="text" id="repassword" value="admin"></td>
+      </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp; 管理员邮箱：</label></td>
+        <td>&nbsp;&nbsp;
+            <input name="email" type="text" id="email" value="admin@admin.com"></td>
+      </tr>
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp;加密字符串：</label></td>
+        <td>&nbsp;&nbsp;
+            <input name="crypt" type="text" id="crypt" value=<?=$code?>>
+          &nbsp;&nbsp;随意填写</td>
+      </tr>
+	  
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label> &nbsp;&nbsp;网站路径：</label></td>
+        <td>&nbsp;&nbsp;
+  <input name="path" type="text" id="path" value=<?=$path?> size='40'>
+&nbsp;&nbsp;最后不要加 '/' </td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF" align="center">
+        <td colspan="2">
+            <input type="submit" name="Submit" value="下一步" /></td>
+        </tr>
+    </form>
+	</table></td>
+  </tr>
+</table>
+<script type="text/javascript">
+$('#db_name').blur(function (){
+	$.post(
+		'index.php?step=check_db',
+		{db_host:$("#db_host").val(),db_user:$("#db_user").val(),db_pass:$("#db_pass").val(),db_name:$("#db_name").val()},
+		function (data) 
+		{
+			var sel=document.getElementById('db_name');
+			eval('arr='+data+';');
+			if(arr>0)
+			{
+				var answer = confirm('数据库已经存在，要覆盖它吗？');
+                if(answer === false) {
+                    sel.value = "";
+                }
+			}
+		}
+	);
+});
+</script>
+</body>
+</html>

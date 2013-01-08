@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language="JavaScript" src="js/common.js" type="text/javascript"></script>
+</head>
+<body>
+<br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+      
+	  <tr class="header">
+        <td height="25">&nbsp;导航列表&nbsp;&nbsp;&nbsp;&nbsp;<a href="nav.php?act=add">添加导航</a></td>
+      </tr>
+	  
+      <tr>
+        <td align="center" bgcolor="#FFFFFF">
+		<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+          <form action="" method="post" name="form">
+            <tr bgcolor=#CED4E8 align="center">
+              <td width="7%" height=25>
+                编号</td>
+              <td width="26%">导航名称</td>
+              <td width="35%">跳转地址</td>
+              <td width="23%">操作</td>
+            </tr>
+<?
+foreach($nav AS $row)
+{
+?>
+            <tr bgcolor="#FFFFFF" align="center">
+              <td>
+                <input name="id[]" type="checkbox" id="id[]" value="<?=$row[id]?>" />
+                <?=$row[id]?>              </td>
+              <td><?=$row[navname]?>
+                &nbsp;</td>
+              <td><?=$row[url]?></td>
+              <td><a href="nav.php?act=edit&id=<?=$row[id]?>">编辑</a> | <a href="nav.php?act=batch&id=<?=$row[id]?>" onClick="if(!confirm('确定要删除吗？\n\n此操作不可以恢复！'))return false;">删除</a></td>
+            </tr>
+<?
+}
+?>
+           <tr bgcolor=#FFFFFF align=left>
+		  <td height="26" colspan="6" bgcolor="#CED4E8">&nbsp;&nbsp;&nbsp;&nbsp; 
+			   <input name="checkall" type="checkbox" id="checkall" onClick="CheckAll(this.form)"/>
+			  <input type="hidden" name="act" value="batch">
+			  <input type="submit" name="submit" value=" 批量删除 " onClick="if(!confirm('确定要删除吗？\n\n此操作不可以恢复！'))return false;" />		     </td>
+            </tr>
+          </form>
+        </table></td>
+      </tr>
+</table>
+</body>
+</html>

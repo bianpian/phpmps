@@ -1,0 +1,51 @@
+	<div id="top_bar">
+		<div class="change_city">
+			{loop $areas_list $val}
+			<a href="{$val[url]}">{$val[areaname]}</a>&nbsp;&nbsp;
+			{/loop}
+		</div>
+		<div class="site_service">
+			<!--{if $_userid}-->
+			&nbsp;&nbsp;欢迎你：{$_username}
+			&nbsp;&nbsp;<a href="member.php">[个人中心]</a>
+			{if $_status<=0}&nbsp;&nbsp;<a href="member.php?act=send_check_email"><font color='red'>[验证邮件]</font></a>{/if}
+			&nbsp;&nbsp;<a href="member.php?act=logout&mid={$_userid}">[退出]</a>
+			<!--{else}-->
+			<font color="red"><a href="member.php?act=login&refer={$PHP_URL}">[登录]</a></font>&nbsp;
+			<font color="red"><a href="member.php?act=register">[注册]</a></font>&nbsp;
+			<!--{/if}-->
+		</div>
+	</div>
+	<!-- topBar 结束 -->
+	<!-- 头部 -->
+	<div id="header" class="clearfix">
+		<div class="logo">
+		<a href="./"><img src="templates/{$CFG[tplname]}/images/logo.gif" /></a></div>
+		<div class="quick_menu">
+			<div class="bd">
+				<form name="form" action="search.php" method="post">
+				<input type="text" name="keywords" id="keywords" style="height:20px;" size="50"> 
+				<input type="submit" name="search" style="height:25px" value="&nbsp;搜 索&nbsp;">
+				</form>
+			</div>
+		</div>
+		<div class="post"><a href="{$CFG[postfile]}"><img src="templates/{$CFG[tplname]}/images/post.gif" alt="免费发布信息" border="0" ></a></div>
+	</div>
+	<!-- 头部 结束 -->
+	<!-- 主导航 -->
+	<div id="nav">
+		<div class="nav_zone">
+			<ul>
+				<!--{loop $nav $nav}--><li><a href="{$nav[url]}" target="{$nav[target]}">{$nav[navname]}</a></li><!--{/loop}-->
+			</ul>
+		</div>
+		<!-- 公告 -->
+		{if $CFG['annouce']}
+		<div class="search_box">
+			<div class="bd clearfix">
+            <div class="location"><b>公告：</b>{$CFG['annouce']}</div>
+		</div>
+		{/if}
+		<!-- 公告 结束 -->
+	</div>
+	<!-- 主导航结束 -->

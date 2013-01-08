@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/help.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content">
+		<div class="top_nav_box clearfix">
+			<div class="center_module">
+				<ul class="clearfix">
+					{loop $type $val}
+					<li><a href="{$val[url]}">{$val[typename]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			
+		</div>
+		<div class="line_height"></div>
+		<div class="list_test">
+			<ul class="clearfix">
+				{loop $helps $help}
+				<li><a href="{$help[url]}" title="{$help['title']}">{$help[stitle]}</a></li>
+				{/loop}
+			</ul>
+		</div>
+		<div><!--{template page}--></div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

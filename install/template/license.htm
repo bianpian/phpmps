@@ -1,0 +1,68 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<title>阅读协议</title>
+<link href="style/style.css" rel=stylesheet type=text/css>
+<style type="text/css">
+<!--
+.STYLE4 {	font-family: "黑体";
+	font-weight: bold;
+}
+-->
+</style>
+<script>
+function chklicense()
+{
+	if(document.form.yes.checked==true)
+	{
+		document.form.submit.disabled=false;
+	}else{
+		document.form.submit.disabled=true;
+	}
+}
+</script>
+</head>
+<body>
+<div align="center"><span class="STYLE4"><font size="+1">PHP信息发布系统--阅读协议</font></span> <br/>
+</div>
+<br>
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="1" class="tableborder">
+  <tr class="header">
+    <td height="25">&nbsp;使用协议</td>
+  </tr>
+  <tr>
+    <td height="68" colspan="2" align="center" bgcolor="#FFFFFF">
+	
+        
+    <table width="100%" align="center" border="0" cellspacing="1" cellpadding="0" bgcolor="#DBEAF5">
+	<form id="form" name="form" method="post" action="index.php?step=1">
+      
+
+      <tr bgcolor="#FFFFFF" align="left">
+        <td>感谢您使用PHPMPS系统<br>
+          <br>
+          本授权协议适用且仅适用于PHPMPS2.x版本，PHPMPS开发团队拥有对本授权协议的最终解释权。<br>
+          <OL>
+            <LI>您可以在完全遵守本最终用户授权协议的基础上，将本软件应用于商业用途，而不必支付费用。如果采用PHPMPS系统二次开发再发布，必须得到PHPMPS开发团队的许可，否则我们将追究法律责任。   
+            <LI>您可以在协议规定的约束和限制范围内修改 PHPMPS 源代码或界面风格以适应您的网站要求。   
+            <LI>您拥有使用本软件构建的网站中全部会员资料及相关信息等所有权，并独立承担与其内容的相关法律义务。   
+            <LI>获得商业授权之后，您可以依据所购买的授权类型中确定的技术支持期限、技术支持方式和技术支持内容，自授权时刻起，在技术支持期限内拥有通过指定的方式获得指定范围内的技术支持服务。商业授权用户享有反映和提出意见的权力，相关意见将被作为首要考虑，但没有一定被采纳的承诺或保证。            </LI>
+          <LI>用户出于自愿而使用本软件，您必须了解使用本软件的风险，在尚未购买产品技术服务之前，我们不承诺提供任何形式的技术支持、使用担保，也不承担任何因使用本软件而产生问题的相关责任。     
+            <LI>PHPMPS开发团队不对使用本软件构建的网站中的信息承担责任。 </LI>
+            </OL>
+          <p>PHPMPS开发团队拥有在不事先通知的情况下，修改授权协议和服务价目表的权力，修改后的协议或价目表对自改变之日起的新授权用户生效。</p>
+          </td>
+      </tr>
+
+      <tr bgcolor="#FFFFFF" align="center">
+        <td colspan="2">
+		<input type="checkbox" name="yes" value="checkbox" onClick="return chklicense();"/>
+		<input type="submit" name="submit" value="同意" disabled/>
+        </td>
+        </tr>
+    </form>
+	</table></td>
+  </tr>
+</table>
+</body>
+</html>

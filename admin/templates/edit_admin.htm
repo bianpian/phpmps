@@ -1,0 +1,125 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.username.value==""){
+		alert('请输入管理员名称！');
+		document.form.username.focus();
+		return false;
+	}
+	if(document.form.password.value==""){
+		alert('请输入密码！');
+		document.form.password.focus();
+		return false;
+	}
+	if(document.form.repass.value==""){
+		alert('请输入重复密码！');
+		document.form.repass.focus();
+		return false;
+	}
+	if(document.form.email.value==""){
+		alert('请输入邮件！');
+		document.form.email.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加管理员</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="form" action="admin.php?act=update&id=<?=$admin[userid]?>">
+<tr>
+  <td width="14%" align="right">管理员名称： </td>
+  <td width="86%">  <?php echo $admin[username];?></td>
+</tr>
+<tr>
+  <td align="right">管理员密码： </td>
+  <td><input name="password" type="password" id="password" value="" size="30"></td>
+</tr>
+<tr>
+  <td align="right">重复密码： </td>
+  <td><input name="repass" type="password" id="repass" value="" size="30"></td>
+</tr>
+<tr>
+  <td align="right">管理员邮箱： </td>
+  <td><input name="email" type="text" id="email" value="<?=$admin[email]?>" size="30">
+    *</td>
+</tr>
+
+<tr>
+  <td align="right">管理员权限： </td>
+  <?if($admin[is_admin]){
+  
+  echo "<td>超级管理员拥有所有权限，无需设置。</td>";
+  }else{
+  if($_SESSION[adminid]==$admin[userid])
+  {
+  	echo "<td>不能编辑自己的权限。</td>";
+  }else{
+  ?>
+
+  <td width="86%">
+  <input type="checkbox" name="purview[]" value="config" <?php if(in_array('config',$purview))echo "checked";?> >
+  系统设置 
+  <input type="checkbox" name="purview[]" value="admin" <?php if(in_array('admin',$purview))echo "checked";?> >
+  管理员管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="admin_log" <?php if(in_array('admin_log',$purview))echo "checked";?> >
+  日志管理
+  <input name="purview[]" type="checkbox" id="purview[]" value="flash" <?php if(in_array('flash',$purview))echo "checked";?> >
+  flash管理
+  <input name="purview[]" type="checkbox" id="purview[]" value="sitemap" <?php if(in_array('sitemap',$purview))echo "checked";?> >
+  sitemap管理
+  <input type="checkbox" name="purview[]" value="nav" <?php if(in_array('nav',$purview))echo "checked";?> > 
+  导航设置 <br>
+  <input name="purview[]" type="checkbox" id="purview[]" value="area" <?php if(in_array('area',$purview))echo "checked";?> >
+  地区管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="category" <?php if(in_array('category',$purview))echo "checked";?> >
+  分类管理
+  <input name="purview[]" type="checkbox" id="purview[]" value="custom" <?php if(in_array('custom',$purview))echo "checked";?> >
+  属性管理
+  <input name="purview[]" type="checkbox" id="purview[]" value="info" <?php if(in_array('info',$purview))echo "checked";?> >
+  信息管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="comment" <?php if(in_array('comment',$purview))echo "checked";?> > 
+  评论管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="report" <?php if(in_array('report',$purview))echo "checked";?> > 
+  举报管理<br>
+  <input name="purview[]" type="checkbox" id="purview[]" value="link" <?php if(in_array('link',$purview))echo "checked";?> >
+  链接管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="page" <?php if(in_array('page',$purview))echo "checked";?> >
+  单页管理 
+  <input name="purview[]" type="checkbox" id="purview[]" value="fac" <?php if(in_array('fac',$purview))echo "checked";?> >
+便民管理
+<input name="purview[]" type="checkbox" id="purview[]" value="ads_place" <?php if(in_array('ads_place',$purview))echo "checked";?> >
+广告位管理
+<input name="purview[]" type="checkbox" id="purview[]" value="ads" <?php if(in_array('ads',$purview))echo "checked";?> >
+广告管理
+<input name="purview[]" type="checkbox" id="purview[]" value="database" <?php if(in_array('database',$purview))echo "checked";?> >
+数据库管理
+<input name="purview[]" type="checkbox" id="purview[]" value="replace" <?php if(in_array('replace',$purview))echo "checked";?> >
+替换管理
+<input name="purview[]" type="checkbox" id="purview[]" value="member" <?php if(in_array('member',$purview))echo "checked";?> >
+会员管理</td>
+<?
+}
+}
+?>
+</tr>
+<tr><td colspan="2" align="center">
+<input type="submit" name="submit" value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

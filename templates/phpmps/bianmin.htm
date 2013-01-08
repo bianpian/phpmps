@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/fac.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content">
+		<div class="thd clearfix">
+		便民电话
+		</div>
+		<div class="fbd">
+			<div class="infophpmps">
+				<ul class="clearfix">
+				<!--{loop $fac_list $val}-->
+					<li><b>{$val[title]}</b>：{$val[phone]}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+				<!--{/loop}-->		
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div><div id="mask" style="display:none"></div>
+</body>
+</html>

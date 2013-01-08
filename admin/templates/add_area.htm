@@ -1,0 +1,60 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.areaname.value==""){
+		alert('请输入信息标题！');
+		document.form.areaname.focus();
+		return false;
+	}
+	if(document.form.areaname.value.length>50 || document.form.areaname.value.length<2){
+		alert('信息标题请控制在2~30字之间!');
+		document.form.areaname.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加地区</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="form" action="area.php?act=insert">
+<tr>
+  <td width="39%" align="right">地区名称： </td>
+  <td width="61%"> <input name="areaname" type="text" id="areaname" value="" size="30"> *</td>
+</tr>
+<tr>
+  <td align="right">分类选择： </td>
+  <td><select name="parentid" id="parentid" >
+    <option value="0">作为根分类</option>
+<?php
+foreach ($area AS $area)
+{
+    echo "<option value='$area[areaid]' >$area[areaname]</option>\n";
+}
+?>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td align="right">地区排序： </td>
+  <td><input name="areaorder" type="text" id="areaorder" value="<?=$maxorder?>" size="14"></td>
+</tr>
+<tr><td colspan="2" align="center">
+<input type="submit" name="addArea" value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

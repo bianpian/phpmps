@@ -1,0 +1,32 @@
+
+.top_nav_box {}
+.top_nav_box .center_module { float:left; width:532px; display:inline; margin-right:10px;}
+.top_nav_box .right_module { float:right; width:238px;}
+.center_module li { padding-left:30px; background:url(../images/help_06.gif) no-repeat 0 0; line-height:23px; height:23px; font-size:14px; font-weight:bold; text-align:left; float:left; width:125px; display:inline; margin:5px 0 3px 15px;}
+.service_box ul li.ser_tel,.service_box ul li.ser_qq,.service_box ul li.ser_qqs { background-image:url(../images/icon.gif); background-repeat:no-repeat;}
+.service_box { text-align:left; background:url(../images/help2_08.gif) repeat-x 0 bottom;}
+.service_box ul { padding:5px 10px; padding-top:0;}
+.service_box ul li { line-height:23px; color:#333; padding-left:28px; zoom:1; margin-top:1px;}
+.service_box ul li.ser_tel { background-position:11px 6px;}
+.service_box ul li.ser_qq { background:url(../images/qq_online.gif) no-repeat 0 3px;}
+.service_box ul li.ser_qqs { background-position:7px -20px;}
+.service_box ul li a:link { color:#36c; text-decoration:underline;}
+.service_box ul li a:hover { color:#f30;}
+.line_height { background:url(../images/help_11.gif) repeat-x 0 0; height:15px; overflow:hidden; margin-top:5px;}
+.list_test { margin-top:10px; font-size:14px; text-align:left; line-height:28px;}
+.list_test li { float:left; display:inline; margin:0 20px 0 10px; width:275px; background:url(../images/dian.gif) no-repeat 0 8px; padding-left:10px; height:28px; overflow:hidden;}
+.list_test li a { text-decoration:underline;}
+.help_contenter { margin-top:10px; padding:3px; border:1px solid #ccc; font-size:14px;}
+.help_contenter .hd { background:#f3f3f3; text-align:left; text-indent:.5em; height:25px; line-height:25px;}
+.help_contenter .bd { text-align:left; padding:0 20px;}
+.help_contenter .bd h3 { border-bottom:1px dashed #ccc; padding-bottom:5px; font-weight:bold; color:#333; margin:15px 0; text-align:center;}
+.help_contenter .bd p { margin-top:20px; line-height:28px; color:#000;}
+.help_contenter .ft { background:#e4f4e9; height:24px; line-height:24px; text-align:left; color:#555; font-size:12px; margin-top:20px; text-indent:.5em;}
+
+
+
+
+
+
+
+

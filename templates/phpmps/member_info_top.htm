@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<base href="{PHPMPS_PATH}">
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="contentt">
+		<form name="form" method="post" action="member.php?act=top">
+		<div class="smalltitle">信息置顶</div>
+		  <table cellpadding="2" cellspacing="1" class="table">
+			<tr>
+			  <td width="119"  class="tditem">标题：</td>
+			  <td width="618" class="tdcontent" ><a href="view.php?id={$info[id]}">{$info['title']}</a></td>
+			</tr>
+			<tr>
+			  <td class="tditem">说明</td>
+			  <td class="tdcontent">
+				一键刷新信息扣除信息币<font color="red">{$CFG['info_refer_credit']} </font>枚
+			  </td>
+			</tr>
+			<tr>
+			  <td class="tditem">置顶</td>
+			  <td class="tdcontent">
+				<input type="radio" class="textInt" id="is_top" name="is_top" value="0" checked onclick="check_info_gold()"/>不置顶
+				<input type="radio" class="textInt" id="is_top" name="is_top" value="1" onclick="check_info_gold()"/>大类置顶 <input type="radio" class="textInt" id="is_top" name="is_top" value="2" onclick="check_info_gold()" />分类置顶
+				<input id="number" name="number"  type="text" size="6" value='7' onblur="check_info_gold()" onKeyUp="value=value.replace(/\D+/g,'')" /> 天
+				&nbsp;&nbsp;【每天<font color="red">{$CFG['top_gold']}</font>金币】&nbsp;&nbsp;<span id="c_top"></span></span>
+				<script type="text/javascript">
+				function check_info_gold()
+				{
+					var temp=document.getElementsByName("is_top");
+					for (i=0;i<temp.length;i++) {
+						if(temp[i].checked)is_top = temp[i].value;
+					}
+					if(is_top == 0) {
+						$("#c_top").html("");
+						return false;
+					}
+					if($("#number").val()>0 && is_top>0) {
+						$.post(
+							'member.php?act=check_info_gold',
+							{is_top:$("#is_top").val(),number:$("#number").val()},
+							function (data) {
+								eval('arrstr='+data+';');
+								if(arrstr.gold<0) {
+									document.getElementById('is_top').checked='0';
+									$("#c_top").html("<font color=red>金额不足</font>");
+								} else {
+									$("#c_top").html("共需<font color='red'>"+arrstr.kou+"</font>金币");
+								}
+							}
+						)
+					}
+				}
+				</script>
+			</td>
+			</tr>
+			<tr>
+			  <td class="tditem">现有信息币</td>
+			  <td class="tdcontent">
+				<font color="red">{$user_info['gold']}</font> 枚
+			  </td>
+			</tr>
+			<tr>
+			  <td class="tditem"></td>
+			  <td class="tdcontent">
+			    <input type="hidden" name="id" value="{$id}" />
+				<input type="submit" name="submit" value="提交" />
+			  </td>
+			</tr>
+			
+		  </table>
+	</div>
+	</form>
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

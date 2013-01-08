@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+<div class="bigtitle">交易详情</div>
+
+
+<span ><div class="ptag"></div><br />
+</span>
+<table id="ProOrderList" width="100%">
+	<tr>
+		<td>          
+        <table border="0" cellpadding="1" cellspacing="1" class="tablelist" width="100%">
+            <tr class="tabletitle">
+                <td><b>信息编号</b></td>
+				<td><b>类型</b></td>
+                <td><b>数量</b></td>
+				<td><b>时间</b></td>
+                <td><b>描述</b></td>
+            </tr>
+			{loop $exchanges $exchange}
+			<tr class="tditem" style="text-align:center;" onmouseover="this.className='table_over';" onmouseout="this.className='tditem';">
+			<td>{$exchange[exchangeid]}</td>
+			<td>{$exchange[type]}</td>
+			<td>{$exchange[value]}{$exchange[unit]}</td>
+			<td>{$exchange[addtime]}</td>
+			<td>&nbsp;{$exchange[note]}</td>
+			</tr>
+			{/loop}
+        </table>
+    <div class="manu clearfix" style="text-align:center;">
+			<br /><!--{template page}-->
+		</div></td>
+	</tr>
+</table>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

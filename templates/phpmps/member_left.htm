@@ -1,0 +1,10 @@
+<li {if $act=='index'}class="current"{/if}><a href="member.php">会员首页</a></li>
+<li {if $act=='modify'}class="current"{/if}><a href="member.php?act=modify">基本资料</a> <a href="member.php?act=avatar" class="small">头像</a></li>
+<li {if $act=='edit_password'}class="current"{/if}><a href="member.php?act=edit_password">修改密码</a></li>
+<li {if $act=='payonline'}class="current"{/if}><a href="member.php?act=payonline">在线充值</a></li>
+<li {if $act=='gold'}class="current"{/if}><a href="member.php?act=gold">购买信息币</a></li>
+<li {if $act=='exchange'}class="current"{/if}><a href="member.php?act=exchange">交易详情</a></li>
+<li {if $act=='info'}class="current"{/if}><a href="member.php?act=info">我的信息</a> <a href="{$CFG['postfile']}" class="small">发布</a></li>
+<li {if $act=='info_comment'}class="current"{/if}><a href="member.php?act=info_comment">信息评论</a> </li>
+<li {if $act=='com'}class="current"{/if}><a href="member.php?act=com">企业黄页</a> <a href="postcom.php" class="small">发布</a></li>
+<li><a href="member.php?act=logout">退出系统</a></li>

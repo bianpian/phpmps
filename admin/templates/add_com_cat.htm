@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href="images/style.css" rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.catname.value==""){
+		alert('请输入信息标题！');
+		document.form.catname.focus();
+		return false;
+	}
+	if(document.form.catname.value.length>50 || document.form.catname.value.length<2){
+		alert('信息标题请控制在2~30字之间!');
+		document.form.catname.focus();
+		return false;
+	}
+	if(document.form.cat.value==""){
+		alert('请选择分类！');
+		document.form.province.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加分类</td>
+</tr>
+<tr><td height="247" align=center bgcolor=#FFFFFF><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="form" action="?act=insert">
+<tr>
+  <td width="22%" align="right">分类名称： </td>
+  <td width="78%"><div align="left">
+    <input name="catname" type="text" id="catname" value="" size="30">
+    *</div></td>
+</tr>
+<tr>
+  <td align="right">分类选择： </td>
+  <td><select name="parentid" id="parentid" >
+    <option value="0">作为根分类</option>
+    <?php
+foreach ($cats AS $cat)
+{
+    echo "<option value='$cat[catid]' >$cat[catname]</option>\n";
+}
+?>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td align="right">分类排序： </td>
+  <td><input name="catorder" type="text" id="catorder" value="<?=$maxorder?>" size="13"></td>
+</tr>
+<tr>
+  <td align="right">关键词(keywords)： </td>
+  <td><textarea name="keywords" cols="65" rows="5" id="keywords"></textarea></td>
+</tr>
+<tr>
+  <td align="right">介绍(description)： </td>
+  <td><textarea name="desc" cols="65" rows="5" id="desc"></textarea></td>
+</tr>
+<tr><td height="29" colspan="2" align="center">
+<input type="submit" name="addArea" value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

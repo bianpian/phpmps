@@ -1,0 +1,41 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+  <tr class=header>
+    <td height=25>浏览评论</td>
+  </tr>
+  <tr>
+    <td height="157" align=center bgcolor=#FFFFFF><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+      <form method=post onSubmit="return chkform()" name="form" action="area.php?act=update">
+        <tr>
+          <td width="25%" align="right">发布人： </td>
+          <td width="75%"> <?=$username?></td>
+        </tr>
+          <td align="right">发布时间： </td>
+          <td><?=$postdate?></td>
+        </tr>
+          <td align="right">发布时间： </td>
+          <td><?=$ip?></td>
+        </tr>
+        <tr>
+        <tr>
+          <td align="right">针对信息： </td>
+          <td><a href="../view.php?id=<?=$infoid?>" target="_blank"><?=$infoid?></a></td>
+        </tr>
+        <tr>
+          <td align="right">详细内容： </td>
+          <td><textarea name="areaorder" cols="80" rows="8" readonly="readonly"><?=$content?></textarea></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">&nbsp;</td>
+        </tr>
+      </form>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

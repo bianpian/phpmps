@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script language="javascript">
+<!--
+function CheckForm() {
+if ($F('amount') == "")
+	{
+	    alert("请输入支付金额！")
+		Field.clear('amount')
+		Field.focus('amount');
+	    return false
+	 }
+if ($F('contactname') == "")
+	{
+	    alert("请输入联系人姓名！")
+		Field.clear('contactname')
+		Field.focus('contactname');
+	    return false
+	 }
+if ($F('telephone') == "")
+	{
+	    alert("请输入联系电话！")
+		Field.clear('telephone')
+		Field.focus('telephone');
+	    return false
+	 }
+if ($F('email') == "")
+	{
+	    alert("请输入E-mail！")
+		Field.clear('email')
+		Field.focus('email');
+	    return false
+	 }
+    document.myform.submit.disabled = true;
+}
+//-->
+</script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+<form action="member.php?act=confirm" method="post" name=form>
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="contentt">
+<div class="bigtitle">在线支付</div>
+
+<div class="smalltitle">填写支付信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem">支付金额：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;"><input name="amount" type="text" size="10" value="{$amount}"> 元</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">支付平台：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;">
+			<select name="paycenter">
+			{loop $payonline_setting $paycenter $pay}
+			<option value="{$pay[paycenter]}" {$selected[$paycenter]}>{$pay[name]}</option>
+			{/loop}
+			</select>
+			</span>
+		</td>
+    </tr><tr>
+        <td class="tditem">联系人：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;"><input name="contactname" type="text" size="30"  value="{$contactname}"></span></td>
+    </tr>
+	<tr>
+        <td class="tditem">邮箱：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;"><input name="email" type="text" size="30" value="{$email}"></span></td>
+    </tr>
+	<tr>
+        <td class="tditem">电话：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;"><input name="telephone" type="text" size="30" value="{$telephone}"></span></td>
+    </tr>
+     
+</table>
+<div class="submit">
+<input type="submit" name="submit" value=" 提交 " id="submit" /></div>
+ </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

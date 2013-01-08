@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+<form action="member.php" method="post" name=form>
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="contentt">
+
+		<div class="smalltitle">资金购买信息币</div>
+		<form name="form" action="{$MOD[linkurl]}point.php" method="post">
+		  <table cellpadding="2" cellspacing="1" class="table">
+			<tr>
+			  <td width="119"  class="tditem">用户名：</td>
+			  <td width="618" class="tdcontent" >{$_username}</td>
+			</tr>
+			<tr>
+			  <td class="tditem">资金余额：</td>
+			  <td class="tdcontent">{$userinfo['money']} 元</td>
+			</tr>
+			<tr>
+			  <td class="tditem">可用信息币：</td>
+			  <td class="tdcontent">{$userinfo['gold']} 枚</td>
+			</tr>
+			<tr>
+			  <td class="tditem">购买信息币：</td>
+			  <td class="tdcontent">
+				  <input name="m_number" id="m_number" size="10" type="text" value="" onblur="check_money2gold()" />
+				  <span id="c_money"></span>1信息币 = {$CFG['money2gold']}元</td>
+				<script type="text/javascript">
+				function check_money2gold()
+				{
+
+					$.post(
+						'member.php?act=check_money2gold',
+						{number:$("#m_number").val()},
+						function (data) {
+							eval('arrstr='+data+';');
+							if(arrstr==0) {
+								document.getElementById('m_number').value='';
+								$("#c_money").html("<font color=red>金额不足</font>");
+							} else {
+								$("#c_money").html("");
+							}
+						}
+					)
+				}
+				</script>
+			</tr>
+			<tr>
+			  <td class="tditem">&nbsp;</td>
+			  <td class="tdcontent">
+			    <input type="hidden" name="act" value="act_gold">
+				<input type="hidden" name="type" value="money2gold">
+				<input name="dosubmit" type="submit" value=" 确定购买 ">
+			  </td>
+			</tr>
+		  </table>
+		</form>
+
+		<div class="smalltitle">积分兑换信息币</div>
+		<form name="form" action="member.php" method="post">
+		  <table cellpadding="2" cellspacing="1" class="table">
+			<tr>
+			  <td width="120" class="tditem">用户名：</td>
+			  <td width="617" class="tdcontent" >{$_username}</td>
+			</tr>
+			<tr>
+			  <td class="tditem">可用积分：</td> 
+			 <td class="tdcontent">{$userinfo['credit']} 分</td>
+			</tr>
+			<tr>
+			  <td class="tditem">可用信息币：</td>
+			  <td class="tdcontent">{$userinfo['gold']} 枚</td>
+			</tr>
+			<tr>
+			  <td class="tditem">兑换信息币：</td>
+			  <td class="tdcontent">
+				<input name="c_number" id="c_number" type="text" size="10" value="" onblur="check_credit2gold()" /><span id="c_credit"></span> 1信息币 = {$CFG['credit2gold']}积分</td>
+			  <script type="text/javascript">
+				function check_credit2gold()
+				{
+					$.post(
+						'member.php?act=check_credit2gold',
+						{number:$("#c_number").val()},
+						function (data) {
+							eval('arrstr='+data+';');
+							if(arrstr==0) {
+								document.getElementById('c_number').value='';
+								$("#c_credit").html("<font color=red>金额不足</font>");
+							} else {
+								$("#c_credit").html("");
+							}
+						}
+					)
+				}
+				</script>
+			</tr>
+			<tr>
+			  <td class="tditem">&nbsp;</td>
+			  <td class="tdcontent">
+			    <input type="hidden" name="act" value="act_gold">
+				<input type="hidden" name="type" value="credit2gold">
+				<input name="dosubmit" type="submit" value=" 确定兑换 ">
+			  </td>
+			</tr>
+		  </table>
+		</form>
+</div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

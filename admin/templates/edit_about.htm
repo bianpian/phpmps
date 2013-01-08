@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href=images/style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>修改单页</td>
+</tr>
+<tr><td height="304" align=center bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="about.php?act=update" method=post name="form">
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">标题：</td>
+    <td><input type="text" name="title" size="35" maxlength="100" value="<?=$about[title]?>" /></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">跳转地址：</td>
+    <td><input name="url" type=text id="url" value="<?=$about[url]?>" size=35 maxlength=100>
+      非本地链接，前面必须加http://</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">是否显示：</td>
+    <td><label>
+      <select name="is_show" id="is_show">
+        <option value="1" <? if($about[is_show]=='1') echo "selected=selected"; ?>>是</option>
+        <option value="0" <? if($about[is_show]!='1') echo "selected=selected"; ?>>否</option>
+      </select>
+    </label></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">排序：</td>
+    <td><label>
+      <input name="aboutorder" type=text id="aboutorder" value="<?=$about[aboutorder]?>" size=8 maxlength=100>
+    </label></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">关键词(keywords)：</td>
+    <td><textarea name="keywords" cols="60" rows="5" id="keywords"><?=$about[keywords]?></textarea></td>
+  </tr>
+<tr bgcolor=#FFFFFF>
+<td width=16% height=25 align="right">介绍(description)：</td>
+<td width="84%"><textarea name="description" cols="60" rows="5" id="description"><?=$about[description]?></textarea></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td height=25 align="right">详细内容：</td>
+<td height=25><?php echo $content; ?></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td colspan="2" height=30 align="center">
+ <input type="hidden" name="id" value="<?=$about[id]?>">
+ <input type="submit" name="submit" value=" 提 交 " />&nbsp;&nbsp;
+ <input type="reset" name="" value=" 重 置 " ></td>
+</tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

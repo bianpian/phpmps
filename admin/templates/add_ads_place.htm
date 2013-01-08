@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.placename.value==""){
+		alert('请输入广告位名称！');
+		document.form.placename.focus();
+		return false;
+	}
+	if(document.form.width.value==""){
+		alert('请输入宽度！');
+		document.form.width.focus();
+		return false;
+	}
+	if(document.form.height.value==""){
+		alert('请输入高度！');
+		document.form.height.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加广告位</td>
+</tr>
+<tr><td height="198" align=center bgcolor=#FFFFFF><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="form" action="ads_place.php?act=insert">
+<tr>
+  <td width="33%" align="right">广告位名称： </td>
+  <td width="67%"><input name="placename" type="text" id="placename" value="" size="30"></td>
+</tr>
+<tr>
+  <td align="right">广告位宽度： </td>
+  <td><input name="width" type="text" id="width" size="13">像素*</td>
+</tr>
+<tr>
+  <td align="right">广告位高度： </td>
+  <td><input name="height" type="text" id="height" size="13">像素*</td>
+</tr>
+<tr>
+  <td align="right">广告位描述： </td>
+  <td><textarea name="introduce" cols="65" rows="5" id="introduce"></textarea></td>
+</tr>
+<tr><td height="29" colspan="2" align="center">
+<input type="submit" name="addArea" value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

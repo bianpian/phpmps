@@ -1,0 +1,13 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cert/
+Disallow: /data/
+Disallow: /images/
+Disallow: /js/
+Disallow: /include/
+Disallow: /install/
+Disallow: /templates/
+Disallow: post.php
+Disallow: do.php
+Disallow: js.php
+Disallow: member.php

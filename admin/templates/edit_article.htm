@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href="images/style.css" rel=stylesheet type=text/css>
+</head>
+<?=splitword()?>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>修改新闻</td>
+</tr>
+<tr><td height="304" align=center bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="article.php?act=update" method=post name="form">
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">标题：</td>
+    <td><input type="text" name="title" size="60" maxlength="100" value="<?=$article[title]?>" /></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">分类：</td>
+    <td><?=$type_select?></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">在首页显示：</td>
+    <td>
+      <input type="radio" name="is_index" value="1" <? if($article[is_index]=='1') echo'checked';?>>
+      是
+      <input name="is_index" type="radio" value="0" <? if($article[is_index]=='0') echo'checked';?>>
+      否
+    </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">推荐：</td>
+    <td>
+      <input type="radio" name="is_pro" value="1" <? if($article[is_pro]=='1') echo'checked';?>>
+      是
+      <input name="is_pro" type="radio" value="0" <? if($article[is_pro]=='0') echo'checked';?>>
+      否
+    </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">排序：</td>
+    <td><label>
+      <input name="listorder" type=text id="listorder" value="<?=$article[listorder]?>" size=8 maxlength=100>
+    </label></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">关键词(keywords)：</td>
+    <td><textarea name="keywords" cols="100" rows="2" id="keywords"><?=$article[keywords]?></textarea></td>
+  </tr>
+<tr bgcolor=#FFFFFF>
+<td width=16% height=25 align="right">介绍(description)：</td>
+<td width="84%"><textarea name="description" cols="100" rows="2" id="description"><?=$article[description]?></textarea></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td height=25 align="right">详细内容：</td>
+<td height=25><?php echo $content; ?></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td colspan="2" height=30 align="center">
+ <input type="hidden" name="id" value="<?=$article[id]?>">
+ <input type="submit" name="submit" value=" 提 交 " />&nbsp;&nbsp;
+ <input type="reset" name="" value=" 重 置 " ></td>
+</tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

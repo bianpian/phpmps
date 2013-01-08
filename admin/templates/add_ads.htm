@@ -1,0 +1,135 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.adsname.value==""){
+		alert('请输入广告名称！');
+		document.form.adsname.focus();
+		return false;
+	}
+	if(document.form.placeid.value=="0"){
+		alert('请选择广告位！');
+		document.form.placeid.focus();
+		return false;
+	}
+}
+
+function showads(val)
+{
+	if(val=='1'){
+		document.getElementById('adscode').style.display='none';
+		document.getElementById('flash').style.display='none';
+		document.getElementById('flashurl').style.display='none';
+		document.getElementById('image').style.display='none';
+		document.getElementById('imageurl').style.display='none';
+		document.getElementById('adsurl').style.display='';
+		document.getElementById('adscontent').style.display='';
+	}else if(val=='2'){
+		document.getElementById('image').style.display='';
+		document.getElementById('imageurl').style.display='';
+		document.getElementById('adscontent').style.display='none';
+		document.getElementById('flash').style.display='none';
+		document.getElementById('flashurl').style.display='none';
+		document.getElementById('adscode').style.display='none';
+	}else if(val=='3'){
+		document.getElementById('flash').style.display='';
+		document.getElementById('flashurl').style.display='';
+		document.getElementById('image').style.display='none';
+		document.getElementById('imageurl').style.display='none';
+		document.getElementById('adsurl').style.display='none';
+		document.getElementById('adscode').style.display='none';
+		document.getElementById('adscontent').style.display='none';
+	}else{
+	    document.getElementById('adscode').style.display='';
+		document.getElementById('flash').style.display='none';
+		document.getElementById('flashurl').style.display='none';
+		document.getElementById('image').style.display='none';
+		document.getElementById('imageurl').style.display='none';
+		document.getElementById('adsurl').style.display='none';
+		document.getElementById('adscontent').style.display='none';
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加广告</td>
+</tr>
+<tr><td align=center bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="ads.php?act=insert" method=post enctype="multipart/form-data" name="form" onSubmit="return chkform()">
+<tr>
+  <td width="33%" align="right">广告名称： </td>
+  <td width="67%"><input name="adsname" type="text" id="adsname" value="" size="30">
+    *</td>
+</tr>
+<tr>
+  <td align="right">所属广告位： </td>
+  <td><select name="placeid" id="placeid">
+    <option value="0">选择广告位</option>
+  <?
+  foreach($ads_place as $val)
+  {
+  	echo "<option value=$val[placeid]>$val[placename]</option>";
+  }
+  ?>
+  </select>
+    *</td>
+</tr>
+<tr>
+  <td align="right">广告类型： </td>
+  <td>
+  <select name="adstype" id="adstype" onChange="showads(this.value)">
+    <option value="1" selected>文字</option>
+    <option value="2">图片</option>
+    <option value="3">Flash</option>
+    <option value="4">代码</option>
+  </select>
+    选择后不可更改*</td>
+</tr>
+<tr id="adsurl">
+  <td align="right">广告链接： </td>
+  <td><input name="adsurl" type="text" id="adsurl" value="" size="30"></td>
+</tr>
+<tr id="image" style="display:none">
+  <td align="right">上传图片： </td>
+  <td><input name="image" type="file" id="image"></td>
+</tr>
+<tr id="imageurl" style="display:none">
+  <td align="right">图片地址： </td>
+  <td><input name="imageurl" type="text" id="imageurl" value="" size="30"></td>
+</tr>
+<tr id="flash" style="display:none">
+  <td align="right">上传Flash： </td>
+  <td><input name="flash" type="file" id="flash"></td>
+</tr>
+<tr id="flashurl" style="display:none">
+  <td align="right">Flash地址： </td>
+  <td><input name="flashurl" type="text" id="flashurl" value="" size="30"></td>
+</tr>
+<tr id="adscontent">
+  <td align="right">广告内容： </td>
+  <td><input name="adscontent" type="text" id="adscontent" value="" size="30"></td>
+</tr>
+<tr id="adscode" style="display:none">
+  <td align="right">广告代码： </td>
+  <td><textarea name="adscode" cols="80" rows="6" id="adscode"></textarea>
+    例如google,baidu广告</td>
+</tr>
+<tr>
+  <td align="right">投放人信息： </td>
+  <td><textarea name="postman" cols="80" rows="5" id="postman"></textarea></td>
+</tr>
+<tr><td height="29" colspan="2" align="center">
+<input type="submit" name="addArea" value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

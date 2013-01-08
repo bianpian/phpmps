@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href=images/style.css rel=stylesheet type=text/css> 
+<script  type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+<br>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 替换内容</td>
+</tr>
+
+<tr>
+<td bgcolor=#FFFFFF align=center>
+
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+  
+  <form name="myform" method="post" action="replace.php?act=str_replace" onSubmit="return check();">
+    <tr bgcolor='#FFFFFF'>
+      <td width="235">选择数据表与字段</td>
+      <td width="783">
+          <select id="tables" name='tables'>
+            <option value='0'>请选择数据表</option>
+            
+<?
+foreach($channels as $val){
+?>
+
+            <option value='<?=$val[0]?>'><?=$val[0]?></option>
+            
+<?}?>
+          </select>
+          <select name="f" id="f">
+          </select>
+          <font color=red>此操作会修改数据库内容，请谨慎操作</font>      </td>
+    </tr>
+    <tr bgColor='#FFFFFF'>
+      <td>要替换的内容</td>
+      <td><input name='search' id='search' type='text' size='30'></td>
+    </tr>
+    <tr bgColor='#FFFFFF'>
+      <td>替换为</td>
+      <td><input name='replace' type='text' size='30'></td>
+    </tr>
+    <tr bgColor='#FFFFFF'>
+      <td>替换条件</td>
+      <td><input name='sql' type='text' size='50'>
+        请输入sql语句，留空则替该数据表换所有内容<font color=red> 例如：id=5 或 id=5 and catid=3 </font></td>
+    </tr>
+    <tr align="center" bgColor='#FFFFFF'>
+      <td height="25" colspan=2><input type="submit" id='123' name="submit" value=" 开始替换字符 "></td>
+    </tr>
+  </form>
+</table></td>
+</tr></table>
+</body>
+</html>
+<script type="text/javascript">
+
+$('#tables').change(function (){
+	$.post(
+		'replace.php?act=ajax',
+		{tables:$("#tables").val()},
+		function (data) 
+		{
+			var sel=document.getElementById('f');
+			sel.options.length=0;
+			var arrstr = new Array();
+			eval('arrstr='+data+';');
+
+			sel.options.add(new Option( "请选择字段",""));  
+			if(arrstr.length>0)   
+			{
+				for(var i=0;i<arrstr.length;i++)
+				{
+					sel.options.add(new Option(arrstr[i],arrstr[i])); 
+				}
+				sel.options[0].selected=true ;
+			}
+		}
+	)
+});
+
+
+
+ 
+function check()
+{
+
+      if(document.myform.tables.value=='0')
+      {
+                 alert('请选择数据表');
+           return false ;
+   }
+      if(document.myform.f.value=='0')
+      {
+                 alert('请选择字段');
+           return false ;
+   }
+      if(document.myform.search.value=='')
+      {
+                 alert('请填写要替换的字符串');
+           return false ;
+      }
+     return true ;
+}
+</script>

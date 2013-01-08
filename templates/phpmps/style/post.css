@@ -1,0 +1,41 @@
+.red_skin { color:#f00!important;}
+.thd { font-size:14px; font-weight:bold; color:#333; line-height:33px;}
+.thd b,.thd span { float:left; display:block;}
+.thd b { width:300px; text-align:right;}
+.thd span { width:156px; background:url(../images/bg5.jpg) no-repeat 0 0; height:33px; color:#a4a4a4;}
+.thd span.current { width:158px; background:url(../images/bg1.jpg) no-repeat 0 0; color:#fff;}
+.fbd { margin:10px 0 0 0; border-top:1px solid #c9dfed; border-bottom:1px solid #c9dfed; background:#f5faff; padding:15px;}
+.tips { border:1px solid #ffc686; background:#f8f5da; text-align:left; padding:10px; width:830px; margin:0 auto; line-height:20px;}
+
+.infophpmps { width:850px; padding:0px; margin-left:auto; margin-right:auto; margin-top:20px;}
+.infophpmps ul { width:840px; padding:0px; margin:0px; border-bottom-width: 1px; border-bottom-color: #CCCCCC; }
+.infobt{margin-top:15px;text-align:left;font-weight:bold; color:#333;font-size:14px;line-height:30px;}
+.infophpmps li{width:140px; float:left;text-align:left; padding:0px; font-size:14px;line-height:30px;}
+.infophpmps li a:link {color: #0000CC;text-decoration: none;}
+.infophpmps li a:visited {color: #333333;text-decoration: none;}
+.infophpmps li a:hover {color: #FF0000;text-decoration: underline;}
+.infophpmps li a:active {color: #FF0000;text-decoration: underline;}
+
+.info { width:750px; margin:0 auto;}
+.info li { width:185px; float:left; text-align:left; padding:15px 0; font-size:14px; line-height:24px; border-bottom: 1px solid #e4edf4; }
+.info li h3 { font-weight:bold; color:#333;}
+.info li a { color:#000099; text-decoration:underline;}
+.info li a:hover { color:#f00;}
+.fbd .pic { float:left; width:300px; text-align:right;}
+.fbd .text { float:left; text-align:left; font-size:14px; margin-top:4px;}
+.fbd .text p { margin-bottom:15px; line-height:24px;}
+.fbd .text p b { color:#333;}
+.fbd .text p a { color:#003399; text-decoration:underline;}
+.fbd .text p a:hover { color:#f30;}
+
+.edit_box { text-align:left; background-color:#f5faff;}
+.edit_box li { clear:both; font-size:14px; padding:8px 0; line-height:22px; border-bottom:1px solid #e4edf4; color:#333; zoom:1; overflow:hidden;}
+.edit_box li span.span_1 { display:block; float:left; text-align:right; width:140px; font-size:14px; font-weight:bold; color:#000; margin-right:20px;}
+.edit_box li span.span_2 { display:block; float:left;}
+.edit_box li span.red_skin { font-size:20px; color:#ff0000;}
+.edit_box li a { text-decoration:underline;}
+.edit_box li input,.edit_box li select { font-size:12px;}
+.edit_box li input.textInt { border:1px solid #a7a6aa; height:22px; line-height:20px; color:#333; font-size:12px;}
+.edit_box li input.button { height:28px; width:50px; line-height:20px; font-size:14px;}
+
+

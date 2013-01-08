@@ -1,0 +1,95 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href="images/style.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function chkform()
+{
+	if(document.form.password.value.length != '' && (document.form.password.value.length>30 || document.form.password.value.length<5) ){
+		alert('新密码请控制在5~30字之间!');
+		document.form.password.focus();
+		return false;
+	}
+	if(document.form.repassword.value != document.form.password.value){
+		alert('两次输入密码不相同');
+		document.form.repassword.focus();
+		return false;
+	}
+	if(document.form.email.value == "")
+	{
+		alert('邮箱不能为空');
+		document.form.email.focus();
+		return false;
+	}
+	if(document.form.email.value != "")//邮箱的验证
+	{
+	  if(!document.form.email.value.match("^([a-zA-Z0-9]+[_|\-|\.]?)*@([a-zA-Z0-9]+[_|\-|\.]?)*\.[a-zA-Z]{2,3}$"))
+	  {
+	   alert('邮箱填写方式错误');
+	   document.form.email.focus();
+	   return false;
+	  }
+	}
+
+}
+</script>
+</head>
+<body>
+<table width="100%" border="0" align="center" cellpadding="3" cellspacing="1" class="tableborder">
+	<tr class="header">
+		<td height="25"> 修改会员信息</td>
+	</tr>
+	<tr>
+	<td bgcolor="#FFFFFF" align="center">
+		<table width="96%" align="center" border="0" cellspacing="1" cellpadding=4>
+			<form method="post" onSubmit="return chkform()" name="form" action="member.php?act=update">
+			<tr>
+			  <td width="23%" align="right">会员名称： </td>
+			  <td width="77%"><input name="username" type="text" id="username" value="<?=$userinfo[username]?>" size="30" readonly>&nbsp;&nbsp;(只读)
+			  </td>
+			</tr>
+			<tr>
+			  <td align="right">新密码：</td>
+			  <td><input name="password" type="password" id="password" value=""  size="30" ></td>
+			</tr>
+			<tr>
+			  <td align="right">重复新密码： </td>
+			  <td><input name="repassword" type="password" id="repassword" value=""  size="30" ></td>
+			</tr>
+			<tr>
+			  <td align="right">邮箱： </td>
+			  <td><input name="email" type="text" id="email" value="<?=$userinfo[email]?>"  size="30" ></td>
+			</tr>
+			<tr>
+			  <td align="right">审核状态： </td>
+			  <td>
+			  <input name="status" type="radio" id="status" value="0" <?php if($userinfo['status']==0){?>checked<?}?> />未通过&nbsp;
+			  <input name="status" type="radio" id="status" value="1" <?php if($userinfo['status']==1){?>checked<?}?> />通过&nbsp;
+			  <input name="status" type="radio" id="status" value="2" <?php if($userinfo['status']==2){?>checked<?}?> />锁定</td>
+			</tr>
+			<tr>
+			  <td align="right">注册时间： </td>
+			  <td><?=date('Y-m-d',$userinfo['registertime'])?></td>
+			</tr>
+			<tr>
+			  <td align="right">最后登录时间： </td>
+			  <td><?=date('Y-m-d',$userinfo['lastlogintime'])?></td>
+			</tr>
+			<tr>
+			  <td align="right">最后登录IP： </td>
+			  <td><?=$userinfo['lastloginip']?></td>
+			</tr>
+			<tr>
+			  <td colspan="2" align="center">
+			  <input type="hidden" name="id" value="<?=$userinfo[userid]?>">
+			  <input type="submit" name="modifymember" value=" 提 交 " />&nbsp;&nbsp; 
+			  <input type="reset" value=" 重 置 " > 
+			  </td>
+			</tr>
+			</form>
+		</table>
+	</td>
+	</tr>
+</table>
+</body>
+</html>

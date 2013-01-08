@@ -1,0 +1,50 @@
+<html>
+<head>
+<link href=images/style.css rel=stylesheet type=text/css>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<script language="javascript">
+function chklogin(){
+	if(document.form.username.value==""){
+		alert('请输入用户名！');
+		document.form.username.focus();
+		return false;
+	}
+	if(document.form.password.value==""){
+		alert('请输入密码！');
+		document.form.password.focus();
+		return false;
+	}
+}
+</script>
+<title>后台管理</title>
+</head>
+<body onload="javascript:document.form.username.focus();">
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<table width=95% border=0 align=center cellpadding=3 cellspacing=1><tr><td><table width=41% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25><div align="center">后台管理登陆</div></td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center><table width="100%" border="0" cellpadding="3" cellspacing="1">
+<form name="form" action="login.php" method=post onsubmit="return chklogin()">
+<tr bgcolor=#FFFFFF>
+  <td width="37%" height=25><div align="right">用户名：</div></td>
+  <td width="63%"><input name=username type=text class="input1" id="username" value="" size=20 maxlength=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">密码：</div></td>
+  <td><input name=password type=password class="input1" id="password" value="" size=20 maxlength=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td colspan="2" height=7 align="center">
+    <input type="hidden" name="act" value="act_login" >
+    <input type=submit name="login" id="submit" value=" 提交 " >
+    <input type=reset name="resets" id="resets" value=" 重置 " >
+  </td>
+</tr>
+</form>
+</table></td>
+</tr></table></td></tr></table>
+</body>
+</html>
+

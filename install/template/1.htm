@@ -1,0 +1,80 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<title>权限检测</title>
+<link href="style/style.css" rel=stylesheet type=text/css>
+<style type="text/css">
+<!--
+.STYLE4 {	font-family: "黑体";
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+<body>
+<div align="center"><span class="STYLE4"><font size="+1">PHP信息发布系统--安装程序</font></span> <br/>
+</div>
+<br/>
+<table width="50%" border="0" align="center" cellpadding="0" cellspacing="1" class="tableborder">
+  <tr class="header">
+    <td height="25">&nbsp;检测权限</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center" bgcolor="#FFFFFF"><table width="100%" align="center" border="0" cellspacing="1" cellpadding="0">
+          <tr bgcolor="#FFFFFF" >
+            <td><br>
+			安装前，请把data/config.inc.php重命名为config.php
+			<br>如果您使用的是非Windows系统，以下目录必须可写才能安装<br>
+             <br></td>
+          </tr>
+      </table></td>
+  </tr>
+</table>
+
+<br>
+<table width="50%" border="0" align="center" cellpadding="0" cellspacing="1" class="tableborder">
+  <tr class="header">
+    <td height="25">&nbsp;目录权限</td>
+  </tr>
+  <tr>
+    <td height="68" colspan="2" align="center" bgcolor="#FFFFFF">
+	
+        
+    <table width="100%" align="center" border="0" cellspacing="1" cellpadding="0" bgcolor="#DBEAF5">
+	<form id="form1" name="form1" method="post" action="index.php?step=2">
+      <tr bgcolor="#CED4E8" align="left">
+        <td width="221" height="25" bgcolor="#CED4E8">目录名称</td>
+        <td width="409">状态</td>
+      </tr>
+<?php
+
+foreach($message as $msg)
+{      
+
+?> 
+      <tr bgcolor="#FFFFFF" align="left">
+        <td><label><? echo $msg['name'];?></label></td>
+        <td><? echo $msg['write'];?></td>
+      </tr>
+<?php
+
+}
+?>
+      <tr bgcolor="#FFFFFF" align="center">
+        <td colspan="2"><label>
+<?
+if($next != 'no')
+{
+?>
+            <input type="submit" name="Submit" value="下一步" />
+<?
+}
+?>
+            </label></td>
+        </tr>
+
+    </form></table></td>
+  </tr>
+</table>
+</body>
+</html>

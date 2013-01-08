@@ -1,0 +1,32 @@
+<script type="text/javascript">
+function comment(){
+	parent.document.getElementById("showcomment").innerHTML=document.getElementById("comment").innerHTML;
+}
+</script>
+<body onload="comment()">
+<div id="comment">
+<!--{if $comment}-->
+	<!--{loop $comment $comment}--><div class="comments">
+  <div class="comment_hd clearfix"><span class="jubao"><span class="name">{$comment[username]}</span> {$comment[postdate]}</div>
+  <div class="comment_bd">{$comment[content]}</div>
+</div>
+	<!--{/loop}-->共{$pager[count]}条评论&nbsp;&nbsp;当前{$pager[page]}/{$pager[page_count]}页&nbsp;&nbsp;{$pager[size]}条/页  &nbsp;&nbsp;
+
+	<!--{if $pager[first]}-->
+	<a href="{$pager[first]}" target='icomment'>第一页 </a>
+	<!--{else}-->第一页 <!--{/if}-->
+	<!--{if $pager[prev]}-->
+	<a href="{$pager[prev]}" target='icomment'>上一页 </a>
+	<!--{else}-->上一页 <!--{/if}-->
+	<!--{if $pager[next]}-->
+	<a href="{$pager[next]}" target='icomment'>下一页 
+	<!--{else}-->下一页 <!--{/if}-->
+	<!--{if $pager[last]}-->
+	<a href="{$pager[last]}" target='icomment'>最后页</a>
+	<!--{else}-->最后页<!--{/if}-->
+
+</div>
+	
+<!--{else}-->
+	暂无评论
+<!--{/if}-->

@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href="images/style.css" rel=stylesheet type=text/css>
+<link rel="stylesheet" rev="stylesheet" href="../include/calendar/calendar.css" type="text/css" media="all" />
+<script type="text/javascript" src="../include/calendar.php"></script>
+<script language=javascript>
+function chkform(){
+	if(document.form.comname.value==""){
+		alert('请输入企业名称！');
+		document.form.comname.focus();
+		return false;
+	}
+	if(document.form.areaid.value==""){
+		alert('请选择地区！');
+		document.form.areaid.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 修改信息</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform();" name="form" action="">
+
+<tr>
+  <td align="right">信息标题：</td>
+  <td><input name=comname id=comname value="<?=$comname?>" size=60 maxLength=80></td>
+</tr>
+<tr>
+  <td align="right">所在地区：</td>
+  <td>
+    <select name=areaid id="areaid">
+      <option value=0>请选择地区</option>
+      <?php
+		echo $info_area;
+	  ?>
+    </select>
+    </td>
+</tr>
+<tr>
+  <td align="right">营业时间：</td>
+  <td><input name=hours type=text id=hours value="<?=$hours?>" maxLength=20></td>
+</tr>
+<tr>
+  <td align="right">信息详细内容：</td>
+  <td><textarea name="content" cols="65" rows="5"><? echo $description;?></textarea></td>
+</tr>
+<tr>
+  <td align="right">联系人：</td>
+  <td><input name=linkman type=text id=linkman value="<?=$linkman?>" maxLength=20></td>
+</tr>
+<tr>
+  <td align="right">电话：</td>
+  <td><input name=phone type=text id=phone value="<?=$phone?>" maxLength=20></td>
+</tr>
+<tr>
+  <td align="right">QQ：</td>
+  <td><input name=qq type=text id=qq value="<?=$qq?>" maxLength=15></td>
+</tr>
+<tr>
+  <td align="right">传真：</td>
+  <td><input name=fax type=text id=qq value="<?=$fax?>" maxLength=15></td>
+</tr>
+<tr>
+  <td align="right">邮箱：</td>
+  <td><input name=email type=text id=email value="<?=$email?>" maxLength=50></td>
+</tr>
+<tr>
+  <td align="right">地址：</td>
+  <td><input name=address type=text id=address value="<?=$address?>" size=60 maxLength=80></td>
+</tr>
+
+<tr>
+  <td align="right">审核：</td>
+  <td>
+  <select name="is_check" id="is_check" >
+	  <option value="1">审核通过</option>
+	  <option value="0">取消审核</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td colspan="2" align="right">
+  <div align="center">
+    <input name=refer type=hidden id="refer" value=<?=$refer?>>
+    <input type=hidden name=id value=<?=$id?>>
+    <input type=hidden name=act value=update>
+    <input type=submit name=submit value= 提交 >
+  </div>  </td>
+  </tr>
+</form>
+</table>
+<br>
+</td>
+</tr></table>
+</body>
+</html>

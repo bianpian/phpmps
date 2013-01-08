@@ -1,0 +1,417 @@
+<html>
+<head>
+<link href=images/style.css rel=stylesheet type=text/css>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+</head>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<body>
+<?include tpl('here')?>
+<br/>
+<form method="post">
+<table width='100%' border='0' cellpadding='0' cellspacing='0'>
+<tr align='center' height='24'>
+<td id='TabTitle0' class='title2' onclick='ShowTabs(0)'>系统设置</td>
+<td id='TabTitle1' class='title1' onclick='ShowTabs(1)'>信息设置</td>
+<td id='TabTitle2' class='title1' onclick='ShowTabs(2)'>Ucenter设置</td>
+<td id='TabTitle3' class='title1' onclick='ShowTabs(3)'>邮件设置</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder id='Tabs0' style='display:'>
+<tr>
+<td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站名称：</div></td>
+    <td><input name="webname" type=text id="webname" value="<?=$CFG[webname]?>" size=35></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站地址：</div></td>
+    <td><input name="weburl" type=text id="weburl" value="<?=$CFG[weburl]?>" size=35>末尾不要加'/'。</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站备案号：</div></td>
+    <td><input name="icp" type=text id="icp" value="<?=$CFG[icp]?>" size=35></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站QQ号：</div></td>
+    <td><input name="qq" type=text id="qq" value="<?=$CFG[qq]?>" size=35>
+      多个QQ号，用 &quot;|&quot; 隔开 。 </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站QQ群：</div></td>
+    <td><input name="qqun" type=text id="qqun" value="<?=$CFG[qqun]?>" size=35>
+      </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站email：</div></td>
+    <td><input name="email" type=text id="email" value="<?=$CFG[email]?>" size=35>
+      </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站电话：</div></td>
+    <td><input name="phone" type=text id="phone" value="<?=$CFG[phone]?>" size=35>
+      </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">模板目录名称：</div></td>
+    <td><label>
+      <select name="tplname" id="tplname">
+	  <?
+	  foreach($tpl_dir as $val)
+	  {
+	      if($val==$CFG[tplname])
+		  {
+		      echo "<option value=$val selected='selected'>$val</option>";
+		  }else{
+              echo "<option value=$val $select>$val</option>";
+          }
+	  }
+	  ?>
+      </select>
+    </label></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">加密字符：</div></td>
+    <td><input name="crypt" type=text id="crypt" value="<?=$CFG[crypt]?>" size=35></td>
+  </tr>
+  
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">是否启用伪静态：</div></td>
+    <td>
+      <input name="rewrite" type="radio" value="1" <? if($CFG[rewrite] == '1') echo 'checked';?>>是
+      <input type="radio" name="rewrite" value="0" <? if($CFG[rewrite] != '1') echo 'checked';?>>否 (启用伪静态需要服务器的支持，请确认您的服务器环境支持url_rewrite)</td>
+  </tr>
+    <tr bgcolor=#FFFFFF>
+    <td><div align="right">是否启用wap：</div></td>
+    <td>
+      <input name="wap" type="radio" value="1" <? if($CFG[wap] == '1') echo 'checked';?>>是
+      <input type="radio" name="wap" value="0" <? if($CFG[wap] != '1') echo 'checked';?>>否 </td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+  <td width="32%"><div align="right">网站关键词：</div></td>
+  <td width="68%"><textarea name="keywords" cols=50 rows=2 id="keywords"><?=$CFG[keywords]?></textarea></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">网站描述：</div></td>
+  <td><textarea name="description" cols=50 rows=2 id="description"><?=$CFG[description]?></textarea></td>
+</tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">禁止词语：</div></td>
+    <td><textarea name="banwords" cols=50 rows=3 id="banwords"><?=$CFG[banwords]?></textarea>
+      多个词语用'|'隔开</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">网站公告：</div></td>
+    <td><textarea name="annouce" cols=50 rows=2 id="annouce"><?=$CFG[annouce]?></textarea></td>
+  </tr>
+
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">底部版权信息：</div></td>
+  <td><textarea name="copyright" cols=50 rows=2 id="copyRight"><?=$CFG[copyright]?></textarea></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">网站统计代码：</div></td>
+  <td><textarea name="count" cols=50 rows=3 id="count"><?=$CFG[count]?></textarea> 
+  <br>例如yaohoo统计、51la统计等</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">关闭用户注册：</div></td>
+  <td><input type="radio" name="close_register" value="1" <? if($CFG[close_register] == '1') echo 'checked';?>>
+    是
+    <input type="radio" name="close_register" value="0" <? if($CFG[close_register] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">是否关闭网站：</div></td>
+  <td><input type="radio" name="closesystem" value="1" <? if($CFG[closesystem] == '1') echo 'checked';?>>
+    是
+    <input name="closesystem" type="radio" value="0" <? if($CFG[closesystem] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">关闭网站提示内容：</div></td>
+  <td><textarea name="close_tips" cols=50 rows=2 id="close_tips"><?=$CFG[close_tips]?></textarea></td>
+</tr>
+
+</table>
+</td></tr>
+</table>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder id='Tabs1' style='display:none'>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+  <tr bgcolor=#FFFFFF>
+    <td width="32%"><div align="right">允许发布的地区：</div></td>
+    <td width="68%"><label>
+    <input name="onlyarea" type=text id="onlyarea" value="<?=$CFG[onlyarea]?>" size=20> (多个用|隔开)
+     IP库可能判断不准确。</label></td>
+  </tr>
+
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">删除会员同时删除会员发布的信息：</div></td>
+    <td><label>
+      <input name="del_m_info" type="radio" value="1" <? if($CFG[del_m_info] == '1') echo 'checked';?>>是
+      <input type="radio" name="del_m_info" value="0" <? if($CFG[del_m_info] != '1') echo 'checked';?>>否 </label></td>
+  </tr>
+
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">删除会员同时删除会员发布的评论：</div></td>
+    <td><label>
+      <input name="del_m_comment" type="radio" value="1" <? if($CFG[del_m_comment] == '1') echo 'checked';?>>是
+      <input type="radio" name="del_m_comment" value="0" <? if($CFG[del_m_comment] != '1') echo 'checked';?>>否 </label></td>
+  </tr>
+
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">发布信息需要审核：</div></td>
+    <td><label>
+      <input name="post_check" type="radio" value="1" <? if($CFG[post_check] == '1') echo 'checked';?>>是
+      <input name="post_check" type="radio" value="0" <? if($CFG[post_check] != '1') echo 'checked';?>>否 </label></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">发表评论需要审核：</div></td>
+    <td>
+      <input name="comment_check" type="radio" value="1" <? if($CFG[comment_check] == '1') echo 'checked';?>>是
+      <input name="comment_check" type="radio" value="0" <? if($CFG[comment_check] != '1') echo 'checked';?>>否	</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">列表页每页信息数量：</div></td>
+    <td>
+      <input name="pagesize" type=text id="pagesize" value="<?=$CFG[pagesize]?>" size=20> 条</td>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">商家列表页信息数量：</div></td>
+    <td>
+      <input name="com_pagesize" type=text id="com_pagesize" value="<?=$CFG[com_pagesize]?>" size=20> 条</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">每天最多发布信息数量：</div></td>
+    <td>
+      <input name="maxpost" type=text id="maxpost" value="<?=$CFG[maxpost]?>" size=20> 条</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">商家缩略图宽度：</div></td>
+    <td>
+      <input name="com_thumbwidth" type=text id="com_thumbwidth" value="<?=$CFG[com_thumbwidth]?>" size=20> px</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">商家缩略图高度：</div></td>
+    <td>
+      <input name="com_thumbheight" type=text id="com_thumbheight" value="<?=$CFG[com_thumbheight]?>" size=20> px</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">信息过期后是否显示联系方式：</div></td>
+  <td><input type="radio" name="expired_view" value="1" <? if($CFG[expired_view] == '1') echo 'checked';?>>
+    是
+    <input name="expired_view" type="radio" value="0" <? if($CFG[expired_view] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">是否允许游客发布信息：</div></td>
+  <td><input type="radio" name="visitor_post" value="1" <? if($CFG[visitor_post] == '1') echo 'checked';?>>
+    是
+    <input name="visitor_post" type="radio" value="0" <? if($CFG[visitor_post] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">是否允许游客发布评论：</div></td>
+  <td><input type="radio" name="visitor_comment" value="1" <? if($CFG[visitor_comment] == '1') echo 'checked';?>>
+    是
+    <input name="visitor_comment" type="radio" value="0" <? if($CFG[visitor_comment] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">是否允许游客浏览联系方式：</div></td>
+  <td><input type="radio" name="visitor_view" value="1" <? if($CFG[visitor_view] == '1') echo 'checked';?>>
+    是
+    <input name="visitor_view" type="radio" value="0" <? if($CFG[visitor_view] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">会员注册需要进行验证：</div></td>
+  <td><input type="radio" name="reg_check" value="1" <? if($CFG[reg_check] == '1') echo 'checked';?>>
+    是
+    <input name="reg_check" type="radio" value="0" <? if($CFG[reg_check] != '1') echo 'checked';?>>
+    否</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">发布信息的文件名：</div></td>
+  <td><input name="postfile" type=text id="postfile" value="<?=$CFG[postfile]?>" size=20></td>
+</tr>
+
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">信息置顶信息币：</div></td>
+  <td><input name="info_top_gold" type="text" size="20" value="<?=$CFG[info_top_gold]?>"> 信息币</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">刷新信息信息币：</div></td>
+  <td><input name="info_refer_gold" type="text" size="20" value="<?=$CFG[info_refer_gold]?>"> 信息币</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">注册赠送积分：</div></td>
+  <td><input name="register_credit" type="text" size="20" value="<?=$CFG[register_credit]?>"> 积分</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">登陆赠送积分：</div></td>
+  <td><input name="login_credit" type="text" size="20" value="<?=$CFG[login_credit]?>"> 积分</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">每天登陆赠积分次数：</div></td>
+  <td><input name="max_login_credit" type="text" size="20" value="<?=$CFG[max_login_credit]?>"> 次</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">每天发布信息赠积分次数：</div></td>
+  <td><input name="max_info_credit" type="text" size="20" value="<?=$CFG[max_info_credit]?>"> 次</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">每天发评论赠积分次数：</div></td>
+  <td><input name="max_comment_credit" type="text" size="20" value="<?=$CFG[max_comment_credit]?>"> 次</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">发布信息赠送积分：</div></td>
+  <td><input name="post_info_credit" type="text" size="20" value="<?=$CFG[post_info_credit]?>"> 积分</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">发表评论积分：</div></td>
+  <td><input name="post_comment_credit" type="text" size="20" value="<?=$CFG[post_comment_credit]?>"> 积分</td>
+</tr>
+
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">积分兑换信息币比例：</div></td>
+  <td><input name="credit2gold" type="text" size="20" value="<?=$CFG[credit2gold]?>"> 分/每信息币</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">资金购买信息币比例：</div></td>
+  <td><input name="money2gold" type="text" size="20" value="<?=$CFG[money2gold]?>"> 元/每信息币</td>
+</tr>
+</table>
+</td></tr>
+</table>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder id='Tabs2' style='display:none'>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+<tr bgcolor=#FFFFFF>
+  <td width="32%" height=25><div align="right">启用UCenter：</div></td>
+  <td width="68%"><label>
+    <input type="radio" name="uc" value="1" <? if($CFG[uc] == '1') echo 'checked';?>>
+    是
+    <input name="uc" type="radio" value="0" <? if($CFG[uc] != '1') echo 'checked';?>>
+    否</label></td>
+</tr>
+
+<span id=ucenter>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter服务器 API URL(末尾不要加 /)：</div></td>
+  <td><input name="uc_api" type=text id="uc_api" value="<?=$CFG[uc_api]?>" size=30></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 通信密钥：</div></td>
+  <td><input name="uc_key" type=text id="uc_key" value="<?=$CFG[uc_key]?>" size=30></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 本地客户端应用ID：</div></td>
+  <td><input name="uc_appid" type=text id="uc_appid" value="<?=$CFG[uc_appid]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 数据库服务器主机名：</div></td>
+  <td><input name="uc_dbhost" type=text id="uc_dbhost" value="<?=$CFG[uc_dbhost]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 服务器数据库名：</div></td>
+  <td><input name="uc_dbname" type=text id="uc_dbname" value="<?=$CFG[uc_dbname]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 数据库用户名：</div></td>
+  <td><input name="uc_dbuser" type=text id="uc_dbuser" value="<?=$CFG[uc_dbuser]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 服务器数据库密码：</div></td>
+  <td><input name="uc_dbpwd" type=text id="uc_dbpwd" value="<?=$CFG[uc_dbpwd]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 服务器数据表前缀：</div></td>
+  <td><input name="uc_dbpre" type=text id="uc_dbpre" value="<?=$CFG[uc_dbpre]?>" size=20></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">UCenter 数据库字符集：</div></td>
+  <td><input name="uc_charset" type=text id="uc_charset" value="<?=$CFG[uc_charset]?>" size=20></td>
+</tr>
+
+</table>
+</td></tr>
+</table>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder id='Tabs3' style='display:none'>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+<tr bgcolor=#FFFFFF>
+  <td width="32%" height=25><div align="right">发送方式：</div></td>
+  <td width="68%">
+<input type="radio" name="sendmailtype"  value="smtp" <?php if($CFG[sendmailtype]=="smtp"){ ?>checked <?php } ?> />SMTP方式
+      <input type="radio" name="sendmailtype" value="mail"  <?php if($CFG[sendmailtype]=="mail"){ ?>checked <?php } ?>/>Mail函数（Windows服务器不支持）
+
+</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">邮箱SMTP：<br></div></td>
+  <td><input name="smtphost" type="text" size="40" value="<?=$CFG[smtphost]?>"> SMTP服务器，只有正确设置才能使用发邮件功能</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">邮箱帐号：</div></td>
+  <td><input name="smtpuser" id="smtpuser" type="text" size="40" value="<?=$CFG[smtpuser]?>"> SMTP服务器的用户帐号，只有正确设置才能使用发邮件功能</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">邮箱密码：</div></td>
+  <td><input name="smtppass" type="password" size="40" value="<?=$CFG[smtppass]?>"></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">SMTP端口：</div></td>
+  <td><input name="smtpport" type="text" size="40" value="<?=$CFG[smtpport]?>"> 默认为25，一般不需要改</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td height=25><div align="right">检查邮件设置：</div></td>
+  <td>
+  <input name="testemail" type="text" id="testemail" value="" size="30">
+      <input name="test" type="button" id="test" value="发送测试邮件" />
+	  <script>
+	  $('#test').click(function (){
+		if(checkemail($("#testemail").val()))
+		{
+			$.post(
+				'index.php?act=test_mail',
+				{mailto:$("#testemail").val(),mailfrom:$("#smtpuser").val()},
+				function (data) {
+					eval('json='+data+';');
+					if(json == "1"){
+						alert('发送成功');
+					} else {
+						alert('发送失败');
+					}
+				}
+			)
+		} else {
+			alert('邮件格式错误!');
+			return false;
+		}	  });
+	  </script>
+  </td>
+</tr>
+</table>
+</td></tr>
+</table>
+
+<br />
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+<tr bgcolor=#FFFFFF>
+  <td colspan="2" height=7 align="center">
+      <input name="act" type="hidden" value="set_config">
+      <input name="submit" type=submit id="submit"  value=" 提交 " >
+      <input name="submit2"  type=reset id="submit2" value=" 重置 " >
+  </td>
+ </tr>
+</table>
+</form>
+</body>
+</html>

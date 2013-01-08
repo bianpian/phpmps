@@ -1,0 +1,67 @@
+
+.side_bar .hd a,a.menu_info,a.red_menu,.count_box,.fot_module,.fot_module .hd { background-image:url(../images/userCenter_bg.gif); background-repeat:no-repeat;}
+.side_bar .hd,.side_bar ul,.count_box .bd p.more { background-image:url(../images/useCenter_icon.gif); background-repeat:no-repeat;}
+.fot_module .ft .more { background-image:url(../images/hd_320.png); background-repeat:no-repeat;}
+
+.service_zone .bd li { background-image:url(../images/icon.gif); background-repeat:no-repeat;}
+
+.STYLE6{color:#ff0000;}
+.col_main { float:right; width:767px;}
+.col_sub { float:left; width:163px;}
+.side_bar { border:1px solid #fbdfbf; background-color:#f0f0f0;}
+.side_bar ul { text-align:left; background-position:10px -33px; margin-top:6px;}
+.side_bar ul li { font-size:14px; padding-left:35px; line-height:26px; height:26px;}
+.side_bar ul li a { color:#003366; text-decoration:none;}
+.side_bar ul li a:hover { text-decoration:underline;}
+.side_bar ul li a.small { font-size:12px; color:#0000ff;}
+.side_bar ul li.current { font-family:"微软雅黑"; font-size:16px; color:#0b3478;}
+.side_bar ul li a.red_skin { color:#990000;}
+.user_info { position:relative;}
+.user_info .pic { float:left;}
+.user_info .pic img { border:1px solid #c4c4c4;}
+.user_info .ft { position:absolute; top:0; right:0;}
+.user_info .info_cont { text-align:left; float:left; display:inline; margin-left:10px;}
+.user_info .info_cont p { margin-bottom:8px;}
+.user_info .info_cont p .blue_skin { color:#4875e7;}
+.red_skin { color:#e74863;}
+a.red_skin { color:#e74863; text-decoration:underline;}
+a.red_skin:hover { text-decoration:none;}
+a.menu_info { width:69px; height:20px; display:inline; float:left; margin-right:5px; background-position:-318px -229px; line-height:20px; color:#fff!important; text-align:center;}
+a.red_menu { background-position:-249px -229px;}
+.count_box { margin-top:10px; background-position:0 8px; height:237px;}
+.count_box .hd { font-size:14px; color:#e33b14; font-weight:bold; text-align:left; padding-left:24px;}
+.count_box .bd { text-align:left; padding:20px; font-size:14px; line-height:25px;}
+.count_box .bd b { color:#ef3509;}
+.count_box .bd p.more { background-position:0 4px; padding-left:20px; font-size:12px; margin-top:20px; color:#666;}
+.secondary_information { background-color:#fefce4; border:1px solid #efebc0; padding:8px; text-align:left; margin-top:10px; line-height:22px; color:#888;}
+.secondary_information b { color:#f3390e; font-weight:normal;}
+.secondary_information .huodong a { color:#333;}
+.secondary_information .huodong a:hover { color:#f30;}
+.secondary_information a { text-decoration:underline;}
+.fot_module { float:left; margin-right:10px; display:inline; position:relative; background-position:0 -229px; width:237px; height:135px; padding:8px 0 0 12px; text-align:left;}
+.fot_module .hd { width:57px; height:14px; text-indent:-999em; overflow:hidden;}
+.fot_module .h_01 { background-position:-708px -244px;}
+.fot_module .h_02 { background-position:-708px -272px;}
+.fot_module .h_03 { background-position:-708px -258px;}
+.fot_module .bd {}
+.fot_module .ft { text-align:center; position:absolute; top:5px; right:8px;}
+.fot_module .ft .more { display:block; background-position:-240px -240px; width:50px; height:20px; padding-top:3px; color:#4c6c8e;}
+.fot_module .ft .jianyi { background-position:-240px -216px; width:68px; height:21px;}
+.text_list  { margin-top:10px;}
+.text_list li { background:url(../images/dian.gif) no-repeat 0px 8px; padding-left:10px; zoom:1; height:21px; line-height:21px; overflow:hidden;}
+.data_box { background-color:#fbf5e6; border:1px solid #f8e38f; zoom:1; margin-top:5px; height:30px; line-height:30px; padding:0 5px;}
+.data_box .left { float:left;}
+.data_box .right { float:right;}
+.data_box span.red_skin { color:#f70538;}
+.data_box span.blue_skin { color:#436bed;}
+.data_box span.yellow_skin { color:#ee804f;}
+
+.service_zone { position:relative; text-align:left; margin-top:20px;}
+.service_zone .bd { margin:10px 8px;}
+.service_zone .bd li { line-height:23px; color:#333; padding-left:20px; zoom:1; margin-top:2px;}
+.service_zone .bd li.ser_tel { background-position:2px 6px;}
+.service_zone .bd li.ser_qq { background-position:1px -47px;}
+.service_zone .bd li.ser_qqs { background-position:0 -20px;}
+.service_zone .bd li a:link { color:#36c; text-decoration:underline;}
+.service_zone .bd li a:hover { color:#f30;}
+

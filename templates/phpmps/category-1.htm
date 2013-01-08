@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/category.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content">
+	{template here}
+	<div class="page_cont clearfix">
+	<div class="col_sub">
+		<!-- 类别列表 -->
+		<!-- 详细搜索 -->
+		<div class="searchz_box">
+			<div class="hd">详细搜索</div>
+			<div class="bd">
+			<form action="search.php" method="post" name="search" >
+				<ul>
+					<li>分类：{$s_cat}</li>
+					<li>地区：{$s_area}</li>
+					{loop $cat_custom $item}
+					<li>{$item[cusname]}：{$item[html]} {$item[unit]}</li>
+					{/loop}
+					<li>关键字：<input type="text" name="keywords" /></li>
+					<li style="text-align:center;">
+					<input type="submit" name="Submit" value=" 搜 索 " />
+					<input type="hidden" name="default_cat" value="{$catid}" />
+					<input type="hidden" name="default_area" value="{$areaid}" />
+					</li>
+				</ul>
+			</form>
+			</div>
+		</div>
+		<!-- 热门信息 -->
+		<div class="searchz_box">
+			<div class="hd">热门信息</div>
+			<div class="bd tiexin" style="padding:8px;">
+				<ul>
+					<!--{loop $cat_hot $hot}-->
+						<li><a href="{$hot['url']}" target="_blank">{$hot['title']}</a></li>
+					<!--{/loop}-->
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col_main bg_close" id="node_box">
+		<div class="mainBar">
+			<!-- 头部选择 --> 
+			<div class="top_selsct">
+			{if $cat_arr || $area_arr}
+				<ul class="clearfix">
+					{if $cat_arr}
+					<div class="address">分类查找：
+						<!--{loop $cat_arr $val}-->
+						<a href={$val[url]}> {$val[catname]}</a>&nbsp;
+						<!--{/loop}-->
+					</div>
+					{/if}
+					{if $area_arr}
+					<div class="address">区域查找：
+					<!--{loop $area_arr $val}-->
+					<a href={$val[url]}> {$val[areaname]}</a>&nbsp;
+					<!--{/loop}-->
+					</div>
+					{/if}
+				</ul>
+				{/if}
+			<div>
+         </div>
+			</div>
+
+			<!-- 内容列表 -->
+			<div class="zone clearfix" id="node_bg">
+
+				{loop $top_info $article}
+				<div class="list_module bg2">
+				  <div class="hd clearfix">
+				  <span class="right_f"><b class="time">{$article[postdate]}</b>发布</span>
+				  <span class="lou">置顶</span>
+				  <span class="title"><a href="{$article[url]}" target="_blank">{$article[title]}</a></span>
+				  <span class="smallClass">{$article[catname]}</span>
+				  </div>
+				  <div class="bd clearfix">
+					<div class="pic">{if $article[thumb]}<img src="{$article[thumb]}" width=55 height=55/>{/if}</div>
+					<div class="cont">
+					  <div class="info">{$article[intro]}</div>
+					  <div class="ft">
+					  地区：<b>{$article[areaname]}</b>&nbsp;
+					  {loop $article[custom] $cus} {$cus[cusname]}：<b>{$cus[cusvalue]}</b>&nbsp;
+					  {/loop}
+					  </div>
+					</div>
+				  </div></div>
+				{/loop}
+				{loop $articles $article}
+				<div class="list_module bg">
+				  <div class="hd clearfix">
+				  <span class="right_f"><b class="time">{$article[postdate]}</b>发布</span>
+				  <span class="title"><a href="{$article[url]}" target="_blank">{$article[title]}</a></span>
+				  <span class="smallClass">{$article[catname]}</span>
+				  </div>
+				  <div class="bd clearfix">
+					<div class="pic">{if $article[thumb]}<img src="{$article[thumb]}" width=55 height=55/>{/if}</div>
+					<div class="cont">
+					  <div class="info">{$article[intro]}</div>
+					  <div class="ft">
+					  地区：<b>{$article[areaname]}</b>&nbsp;
+					  {loop $article[custom] $cus} {$cus[cusname]}：<b>{$cus[cusvalue]}</b>&nbsp;
+					  {/loop}
+					  </div>
+					</div>
+				  </div></div>
+				{/loop}
+			
+				<div class="pagination_module clearfix" style="margin-top:7px;">
+				<span class="right2"><a href="#top" style="border:0; color:#36c;">返回顶部 ↑</a></span>
+				<span class="right2" style="float:left;"><!--{template page}--></span></span>	
+				
+			</div>
+			</div>
+		</div>
+		
+	</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

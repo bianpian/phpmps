@@ -1,0 +1,93 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform()
+{
+	if(document.form.cusname.value==""){
+		alert('请输入名称！');
+		document.form.cusname.focus();
+		return false;
+	}
+	if(document.form.catid.value=="0"){
+		alert('请选择！');
+		document.form.catid.focus();
+		return false;
+	}
+}
+function showtype(val)
+{
+	if(val=='0'){
+		text1.style.display='none';
+	}else if(val=='1'){
+		text1.style.display='';
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 添加自定义属性</td>
+</tr>
+<tr><td align=center bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4 >
+<form method=post onSubmit="return chkform()" name="form" action="custom.php?act=update&id=<?=$cusid?>">
+<tr>
+  <td width="39%" align="right">属性名称： </td>
+  <td width="61%"> <input name="cusname" type="text" id="cusname" value="<?=$cusname?>" size="30"> 
+  *</td>
+</tr>
+<tr>
+  <td align="right">所属分类： </td>
+  <td>
+    <select name="catid" id="catid" >
+      <option value="0">请选择分类</option>
+	  <?php
+		echo $cat_list;
+	  ?>
+    </select>
+    * </td>
+</tr>
+<tr>
+  <td align="right">能否进行搜索索： </td>
+  <td>
+    <select name="is_search" id="is_search" >
+    <option value="0" <? if($search=='0') echo "selected=selected"; ?>>不用搜索</option>
+    <option value="1" <? if($search=='1') echo "selected=selected"; ?>>关键字搜索</option>
+    <option value="2" <? if($search=='2') echo "selected=selected"; ?>>范围搜索</option>
+	<option value="3" <? if($search=='3') echo "selected=selected"; ?>>列表搜索</option>
+	<option value="4" <? if($search=='4') echo "selected=selected"; ?>>多选搜索</option>
+    </select>属性值为数字类型时，才能使用范围搜索。</td>
+</tr>
+<tr>
+  <td align="right">属性类型： </td>
+  <td><select name="custype" id="custype" onChange="showtype(this.value)" >
+    <option value="0" <? if($custype=='0') echo "selected=selected"; ?>>单行文本</option>
+    <option value="1" <? if($custype=='1') echo "selected=selected"; ?>>列表框</option>
+	<option value="2" <? if($custype=='2') echo "selected=selected"; ?>>复选框</option>
+  </select></td>
+</tr>
+<tr id=text1 name=text1 <? if($custype!=1)echo"style='display:none'";?>>
+  <td align="right">属性值： </td>
+  <td><textarea name="value" cols="30" rows="6" id="value"><?=$value?></textarea>
+    每行一个值</td>
+</tr>
+<tr>
+  <td align="right">单位： </td>
+  <td><input name="unit" type="text" id="unit" value="<?=$unit?>" size="30"></td>
+</tr>
+
+<tr><td colspan="2" align="center">
+<input type="hidden" name="refer" value="<?=$_SERVER['HTTP_REFERER']?>">
+<input type="submit" name="submit" value=" 提 交 " />&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

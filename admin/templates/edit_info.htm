@@ -1,0 +1,183 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<link rel="stylesheet" rev="stylesheet" href="../include/calendar/calendar.css" type="text/css" media="all" />
+<script type="text/javascript" src="../include/calendar.php"></script>
+<script language=javascript>
+function chkform(){
+	if(document.form.title.value==""){
+		alert('请输入信息标题！');
+		document.form.title.focus();
+		return false;
+	}
+	if(document.form.areaid.value==""){
+		alert('请选择地区！');
+		document.form.areaid.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 修改信息</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="post" action="info.php" enctype="multipart/form-data">
+
+<tr>
+  <td width="17%" align="right">信息标题：</td>
+  <td width="83%"><input name=title id=title value="<?=$title?>" size=60 maxLength=80></td>
+</tr>
+
+<tr>
+  <td align="right">分类：</td>
+  <td>
+    <select name=catid id="catid">
+      <option value=0>请选择分类</option>
+      <?php
+		echo $info_cat;
+	  ?>
+    </select>
+    </td>
+</tr>
+<tr>
+  <td align="right">所在地区：</td>
+  <td>
+    <select name=areaid id="areaid">
+      <option value=0>请选择地区</option>
+      <?php
+		echo $info_area;
+	  ?>
+    </select>
+    </td>
+</tr>
+<?
+if($custom)
+{
+	foreach($custom as $item)
+	{
+		echo "<tr>
+		  <td align='right'>$item[cusname]：</td>
+		  <td>$item[html]</td>
+		</tr>";
+	}
+}
+?>
+<tr>
+  <td align="right"><span class="postt1">有效期：</span></td>
+  <td><input name="enddate" id="enddate" type=text value="<?=$enddate?>" size="8" maxLength=20> 天 (不填则为永久有效)</td>
+</tr>
+<tr>
+  <td align="right">信息详细内容：</td>
+  <td><textarea name="content" cols="65" rows="5"><? echo $content;?></textarea></td>
+</tr>
+<tr>
+  <td align="right">信息图片：</td>
+  <td>
+  <?php
+    if($images){
+  	foreach($images as $image)
+	{
+	?>
+		<span style="text-align:center"><img src="../<?=$image[path]?>" width="70" height="70" border="1" style="color:#000000"><a href="info.php?act=delimg&imgid=<?=$image[imgid]?>">删?</a></span>
+	<?}
+	}
+	else
+	{
+		echo '暂无图片';
+	}
+  ?>  </td>
+</tr>
+<tr>
+  <td align="right">上传图片：</td>
+  <td>
+  <? for($i=1;$i<=$img_count;$i++){?><input type="file" class="textInt" size="20" name="file<?=$i?>" />
+  <?}?></td>
+</tr>
+<tr>
+  <td align="right">联系人：</td>
+  <td><input name=linkman type=text id=linkman value="<?=$linkman?>" maxLength=20></td>
+</tr>
+<tr>
+  <td align="right">电话：</td>
+  <td><input name=phone type=text id=phone value="<?=$phone?>" maxLength=20></td>
+</tr>
+<tr>
+  <td align="right">QQ：</td>
+  <td><input name=qq type=text id=qq value="<?=$qq?>" maxLength=15></td>
+</tr>
+<tr>
+  <td align="right">邮箱：</td>
+  <td><input name=email type=text id=email value="<?=$email?>" maxLength=50></td>
+</tr>
+<tr>
+  <td align="right">地址：</td>
+  <td><input name=address type=text id=address value="<?=$address?>" size=60 maxLength=80></td>
+</tr>
+ 
+<tr>
+<script type="text/javascript" src="../js/msgbox/msgbox.js"></script>
+<link href="../js/msgbox/msgbox.css" type="text/css" rel="stylesheet" />
+  <td align="right">地图：</td>
+  <td>
+    <input id='mappoint' name='mappoint' type=text maxLength=50 value="<?=$mappoint?>" >
+	<input name="markmap" type="button" value="标注地图" class="gray" onclick="Yubox.win('../do.php?act=small_map&mark=1&width=500&height=250&p={$mappoint}',500,340,'标注地图',null,null,null,true);">
+  </td>
+</tr>
+ 
+<tr>
+  <td align="right">IP：</td>
+  <td><?=$ip?></td>
+</tr>
+<tr>
+  <td align="right">推荐：</td>
+  <td><input name="is_pro" type="text" id="is_pro" size="12" value="<?=$is_pro?>" readonly="readonly" />		  
+  <input name="selbtn2" type="button" id="selbtn2" onClick="return showCalendar('is_pro', '%Y-%m-%d', false, false, 'selbtn2');" value="选择日期" class="button"/>
+  </td>
+</tr>
+<tr>
+  <td align="right">置顶：</td>
+  <td><input name="is_top" type="text" id="is_top" size="12" value="<?=$is_top?>" readonly="readonly" />		  
+  <input name="selbtn" type="button" id="selbtn" onClick="return showCalendar('is_top', '%Y-%m-%d', false, false, 'selbtn');" value="选择日期" class="button"/>
+  </td>
+</tr>
+<tr>
+  <td align="right">置顶类型：</td>
+  <td>
+  <select name="top_type" id="top_type" >
+	  <option value="1" <?if($top_type=='1'){?> selected <?}?>>大类置顶</option>
+	  <option value="2" <?if($top_type=='2'){?> selected <?}?>>小类置顶</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td align="right">审核：</td>
+  <td>
+  <select name="is_check" id="is_check" >
+	  <option value="1">审核通过</option>
+	  <option value="0">取消审核</option>
+  </select>
+  </td>
+</tr>
+<tr>
+  <td colspan="2" align="right">
+  <div align="center">
+    <input name=refer type=hidden id="refer" value=<?=$refer?>>
+    <input type=hidden name=id value=<?=$id?>>
+    <input type=hidden name=act value=update>
+	<input type=hidden name=thumb value=<?=$thumb?>>
+	<input type=hidden name=default_cat value=<?=$catid?>>
+    <input type=submit name=submit value= 提交 >
+  </div>  </td>
+  </tr>
+</form>
+</table>
+<br>
+</td>
+</tr></table>
+</body>
+</html>

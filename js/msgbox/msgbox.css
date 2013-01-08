@@ -1,0 +1,146 @@
+/*container*/
+#yu-window{
+	background:#fff;overflow:hidden;
+	font-size:12px;font-family:'宋体'
+}
+
+/*header*/
+
+.yu-tl{
+	padding-left:8px;
+	height: 37px;
+	background-image: url(images/title_bg_left.gif);
+	background-repeat: no-repeat;
+	background-position: 0 0;
+}
+.yu-tr{
+	padding-right:8px;
+	height: 37px;
+	background-image: url(images/title_bg_right.gif);
+	background-repeat: no-repeat;
+	background-position: right 0;
+}
+.yu-tc{
+	overflow:hidden;
+	height:29px;
+	line-height:29px;
+	padding-top: 8px;
+	padding-right: 5px;
+	background-image: url(images/title_bg_center.gif);
+	background-repeat: repeat-x;
+	background-position: 0 0;
+}
+.yu-ttc{height:13px}
+.yu-header-text{font-size:14px;font-weight:bold;color:#fff;margin-left:5px;float:left}
+.yu-header-tools{float:right;margin-top:5px}
+.yu-header-tools strong{display:none}
+
+/*body*/
+.yu-ml{
+	padding-left:8px;
+	background-image: url(images/win_l.gif);
+	background-repeat: repeat-y;
+	background-position: 0 0;
+	background-color: #666;
+}
+.yu-mr{
+	padding-right:8px;
+	background-image: url(images/win_r.gif);
+	background-repeat: repeat-y;
+	background-position: right 0;
+	background-color: #666;
+}
+.yu-mc{
+	padding:0;
+	background-color: #FFFFFF;
+}
+.yu-body{
+	padding:0;
+	font-size:12px;
+}
+
+/*button*/
+.yu-btn{
+	text-align:right;
+	padding-right: 5px;
+	background-color: #FFF;
+}
+
+/*footer*/
+.yu-bl{
+	padding-left:8px;
+	background-image: url(images/win_lb.gif);
+	background-repeat: no-repeat;
+	background-position: 0 bottom;
+	background-color: #666;
+}
+.yu-br{
+	padding-right:8px;
+	background-image: url(images/win_rb.gif);
+	background-repeat: no-repeat;
+	background-position: right bottom;
+}
+.yu-bc{
+	height:8px;
+	font-size:3px;
+	background-image: url(images/win_b.gif);
+	background-repeat: repeat-x;
+	background-position: 0 0;
+}
+
+/*icon*/
+.Yubox_alert{
+	padding-left:90px;
+	background:url(images/info.gif) no-repeat 20px 50%
+}
+.Yubox_succeed{
+	padding-left:90px;
+	background:url(images/right.gif) no-repeat 20px 50%
+}
+.Yubox_error{
+	padding-left:90px;
+	background:url(images/err.gif) no-repeat 20px 50%
+}
+.Yubox_confirm{
+	padding-left:90px;
+	background:url(images/ask.gif) no-repeat 20px 50%
+}
+.Yubox_alert .yu-content,.Yubox_succeed .yu-content,.Yubox_error .yu-content,.Yubox_confirm .yu-content{padding:50px 0 0}
+/*图标公共定义*/
+.yu-header-tools div{
+	cursor:pointer;
+	width:16px;height:16px;float:left;margin:0 1px;
+	background:url(images/ico.gif) no-repeat 0 0;
+}
+
+.Yubox_close{
+	background-position:-48px 0 !important;
+}
+.Yubox_max{
+	background-position:-16px 0 !important;
+}
+.Yubox_min{
+	background-position:0 0 !important;
+}
+.Yubox_normal{
+	background-position:-32px 0 !important;
+}
+/*取消确认按钮样式*/
+input.btnStyle{
+	width:50px;
+	height:24px;
+	line-height:24px;
+	font-size:12px;
+	color:#FFFFFF;
+	border:0;
+	margin-top: 7px;
+	margin-right: 0;
+	margin-bottom: 7px;
+	margin-left: 0;
+	background-color: #54ADEB;
+	background-image: url(images/btn_bg.gif);
+	background-repeat: no-repeat;
+}
+.yu_btn_b { color: #fff; font-size: 12px; height: 24px; line-height: 24px; background-image: url(images/btn_b.gif); background-repeat: repeat-x; background-position: 0px bottom; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #4c8abe; border-right-color: #003e72; border-bottom-color: #003e72; border-left-color: #4c8abe; background-color: #3385ca; padding:0 5px; width: auto; white-space: nowrap; *padding:0 3px;/* for IE6 */
+vertical-align: middle; }
+.yu_btn_w {vertical-align: middle; color: #333; font-size: 12px; height: 24px; line-height: 24px; background-color: #FFF; background-image: url(images/btn_w.gif); background-repeat: repeat-x; background-position: 0px bottom; border-top-width: 1px; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-top-style: solid; border-right-style: solid; border-bottom-style: solid; border-left-style: solid; border-top-color: #b5b5b5; border-right-color: #6c6c6c; border-bottom-color: #6c6c6c; border-left-color: #b5b5b5; margin-left: 5px; padding-right: 5px; padding-left: 5px; }

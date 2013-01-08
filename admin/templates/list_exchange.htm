@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language="JavaScript" src="js/common.js" type="text/javascript"></script>
+<script type="text/javascript" src="../include/calendar.php"></script>
+<link rel="stylesheet" rev="stylesheet" href="../include/calendar/calendar.css" type="text/css" media="all" />
+<body>
+<br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	  <tr class=header>
+        <td height=25>&nbsp;搜索</td>
+      </tr>
+<form method="get" name="search">
+  <tr bgcolor=#FFFFFF >
+    <td align="center" class="tablerow">
+	用户名：<input name='username' type='text' value="<?=$username?>" size=12>
+	&nbsp;&nbsp;
+	<select name="type">
+	<option value="">交易类型</option> 
+	<option value="money" <?=($type == 'money') ? 'selected' : ''?>>资金</option>
+	<option value="credit" <?=($type == 'credit') ? 'selected' : ''?>>积分</option> 
+	<option value="gold" <?=($type == 'gold') ? 'selected' : ''?>>信息币</option> 
+	</select>&nbsp;&nbsp;开始日期：<input name="begindate" type="text" id="begindate" size="12" value="<?=$begindate?>" onClick="return showCalendar('begindate', '%Y-%m-%d', false, false, 'begindate');" />&nbsp;&nbsp;截止日期：<input name="enddate" type="text" id="enddate" size="12" value="<?=$enddate?>" onClick="return showCalendar('enddate', '%Y-%m-%d', false, false, 'enddate');" />&nbsp;&nbsp;<input type="submit" name="search" value="查 询"></td>
+  </tr>
+  </form>
+</table><br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	  <tr class=header>
+        <td height=25>&nbsp;用户交易记录</td>
+      </tr>
+	  
+      <tr>
+        <td bgcolor=#FFFFFF align=center>
+		<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+          <form action="" method=post onSubmit="return checkform(this);">
+            <tr bgcolor=#CED4E8 align="center">
+              <td width="9%" height=25>用户名</td>
+              <td width="9%" bgcolor="#CED4E8">交易额度</td>
+			  <td width="9%" bgcolor="#CED4E8">交易类型</td>
+              <td width="19%" bgcolor="#CED4E8">交易时间</td>
+              <td width="12%">IP</td>
+              <td width="42%">说明</td>
+            </tr>
+			<?php
+			foreach($exchanges AS $row)
+			{
+			?>
+            <tr bgcolor=#FFFFFF align=center>
+              <td align=left>&nbsp;&nbsp;<?=$row['username']?></td>
+			  <td style="color:<?=$row['value']>0 ? 'red' : 'blue'?>"><?=$row['value']?> <?=$row[unit]?></td>
+			  <td><?=$row[type]?></td>
+              <td><?=$row[addtime]?></td>
+              <td><?=$row['ip']?></td>
+              <td><?=$row['note']?></td>
+            </tr>
+			<?}?>			
+          <tr bgcolor=#FFFFFF align=left>
+		  <td height="26" colspan="6" bgcolor="#CED4E8">
+		     &nbsp;&nbsp;&nbsp;&nbsp;
+		  <? include tpl('page');?></td>
+		  </tr>
+        </form>
+		</table>
+		</td>
+      </tr>
+</table>
+</body>
+</html>

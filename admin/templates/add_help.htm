@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href=images/style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>添加文章</td>
+</tr>
+<tr bgcolor=#FFFFFF><td height="304" align=center >
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="help.php?act=insert" method=post name="form">
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">标题：</td>
+    <td><input type="text" name="title" size="35" maxlength="100" value="" /></td>
+  </tr>
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">分类：</td>
+    <td><?=$type_select?></td>
+  </tr>
+    <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">在首页显示：</td>
+    <td>
+      <input type="radio" name="is_index" value="1">
+      是
+      <input name="is_index" type="radio" value="0" checked>
+      否
+    </td>
+    </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">排序：</td>
+    <td><input name="pageorder" type=text id="pageorder" value="<?=$maxorder?>" size=8 maxlength=100></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">关键词(keywords)：</td>
+    <td><textarea name="keywords" cols="60" rows="5" id="keywords"></textarea></td>
+  </tr>
+<tr bgcolor=#FFFFFF>
+<td width=16% height=25 align="right">介绍(description)：</td>
+<td width="84%"><textarea name="description" cols="60" rows="5" id="description"></textarea></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td height=25 align="right">详细内容：</td>
+<td height=25><?php echo $content; ?></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+<td colspan="2" height=30 align="center">
+ <input type="submit" name="submit" value=" 提 交 " />&nbsp;&nbsp;
+ <input type="reset" name="" value=" 重 置 " ></td>
+</tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

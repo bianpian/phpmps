@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/com_view.css" type="text/css" rel="stylesheet" />
+<script src="js/tabADSMenu.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/common.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div class="divline"></div>
+	<div id="content">
+		{template here}
+		<div>
+			<div class="col_main">
+				<div class="topInfo_zone">
+					<div class="hd"><span class="left">{$comname}</span><div class="clear"></div>
+					<div class="renqi">[<a href="member.php?act=editcom&id={$comid}">编辑</a>]&nbsp;&nbsp;&nbsp;&nbsp;人气：{$click}</div></div>
+					<div class="bd">
+						<div class="zhuti clearfix">
+							<div class="pic"><img src="{$thumb}" width="140" height="60" alt="{$comname}" /></div>
+							<div class="info">{$introduce}</div>
+						</div>
+						<div class="qita">
+							    <table width="676" height="88" border="0" cellpadding="0" cellspacing="0">
+                                  <tr>
+                                    <td width="327" height="26"><div align="left"><b>联系人：</b>{$linkman}</div></td>
+                                    <td width="333"><div align="left"><b>营业时间：</b>{$hours}</div></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="26"><div align="left"><b>传真：</b>{$fax}</div></td>
+                                    <td><div align="left"><b>邮件：</b>{$email}</div></td>
+                                  </tr>
+                                  <tr>
+                                    <td  height="26"><div align="left"><b>联系电话：</b>{$phone}</div></td>
+                                    <td><div align="left"><b>腾讯QQ：</b>{$qq}<a href="tencent://message/?uin={$qq}&Site=&Menu=yes"><img src="templates/{$CFG[tplname]}/images/qq_online.gif" alt="" width="23" height="16" /></a></div></td>
+                                  </tr>
+								  <tr>
+                                    <td  height="26" colspan="2"><div align="left"><b>店铺地址：</b>{$address}</div></td>
+                                  </tr>
+                          </table>
+							
+					  </div>
+					</div>
+				</div>
+				
+				<!-- 商家+商品 展示 -->
+				<div class="select_box">
+					<div class="hd">
+						<ul>
+							<li class="selected" ><font color='#ffffff'><b>商家展示</b></font></li>
+						</ul>
+					</div>
+					<div class="bd shangjia clearfix" id="tabadcontent_10">
+						<div>
+							<ul id="ISL_Cont_1">
+								<!--{loop $com_images $row}-->
+								<li><a href="{$row[path]}" ><img src="{$row[path]}" width="150px" height="150px"></a></li>
+								<!--{/loop}-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div style="width:240px;float:right">
+			<div class="col_sub">
+				<!-- googleMaps -->
+				<div class="googleMaps"><iframe id="map_iframe" src="do.php?act=small_map&show=1&p={$com_info['mappoint']}&width=230&height=230" frameborder="0" scrolling="no" width="230" height="220"></iframe></div>
+			</div>
+			<div class="searchz_box">
+				<div class="hd">热门企业</div>
+				<div class="bd">
+					<ul>
+						{loop $match_com $val}
+						<li><a href="{$val['url']}" target=_blank title="{$val[comname]}">{$val['sname']}</a></li>
+						{/loop}
+					</ul>
+				</div>
+			</div>
+			</div>
+			<div class="blank10"></div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

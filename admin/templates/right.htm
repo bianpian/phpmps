@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<title>管理首页</title>
+<link href="images/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<? include tpl('here'); ?>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 >
+  <tr>
+    <td>
+	<?if($install){?><li style="border: 1px solid #CC0000; padding: 5px; margin-bottom: 5px; margin-top: 5px;">install目录没有删除，为了安全起见，请删除install目录。</li><?}?>
+	</td>
+  </tr>
+  <tr>
+    <td>
+	<script type="text/javascript" src="http://www.phpmps.com/version.php?version=<?=$VERSION['version']?>&release=<?=$VERSION['release']?>&charset=<?=$charset?>"></script>
+	</td>
+  </tr>
+</table>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+  <tr class="header"> 
+    <td height="25">&nbsp;&nbsp;系统信息 </td>
+  </tr>
+
+  <tr> 
+    <td bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#DBEAF5">
+	<tr bgcolor="#FFFFFF">
+	  <td width="50%" height="25">信息数量: <?=$info_num?> <a href="info.php">查看</a></td>
+	  <td width="50%" height="25">投诉数量: <?=$report_num?> <a href="report.php">查看</a></td>
+	</tr>
+	<tr bgcolor="#FFFFFF">
+	  <td height="25">会员数量: <?=$member_num?> <a href="member.php">查看</a></td>
+	  <td height="25">评论数量: <?=$comment_num?> <a href="comment.php">查看</a></td>
+	</tr>
+	<tr bgcolor="#FFFFFF">
+	  <td height="25">黄页数量: <?=$com_num?> <a href="com.php">查看</a></td>
+	  <td height="25">文章数量: <?=$article_num?> <a href="article.php">查看</a></td>
+	</tr>
+	<tr bgcolor="#FFFFFF"> 
+	  <td height="25">登陆者IP: <? echo $_SERVER['REMOTE_ADDR'];?></td>
+	  <td height="25">当前时间: <? echo date("Y-m-d H: i: s");?></td>
+	</tr>
+	<tr bgcolor="#FFFFFF">
+	  <td height="25">最后登陆IP: <?=$admin[lastip]?></td>
+	  <td height="25">最后登陆时间: <?=$admin[lastlogin]?></td>
+	</tr>
+	<tr bgcolor="#FFFFFF"> 
+	  <td height="25">程序版本: <a href="http://www.phpmps.com" target="_blank"><b></b></a><font color="#FF0000"> PHPMPS   <?=$VERSION['version']?></font>&nbsp;</td>
+	  <td height="25">最后更新: <?=$VERSION['release']?></td>
+	</tr>
+	</table>
+	</td>
+  </tr>
+
+</table>
+<br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+  <tr class="header"> 
+    <td height="25">&nbsp;&nbsp;PHPMPS团队信息 </td>
+  </tr>
+
+  <tr> 
+    <td bgcolor="#FFFFFF">
+	<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#DBEAF5">
+	<tr bgcolor="#FFFFFF">
+	  <td height="25">PHPMPS主站：<a href="http://www.phpmps.com" target="_blank">http://www.phpmps.com</a></td>
+	  </tr>
+	<tr bgcolor="#FFFFFF">
+	  <td height="25">论坛交流:<a href="http://bbs.phpmps.com" target="_blank"> http://bbs.phpmps.com</a></td>
+	  </tr>
+	<tr bgcolor="#FFFFFF"> 
+	  <td height="25">下载地址：<a href="http://www.phpmps.com/download.html" target="_blank">http://www.phpmps.com/download.html</a></td>
+	  </tr>
+	  <tr bgcolor="#FFFFFF"> 
+	  <td height="25">邮箱：phpmps#qq.com (#换成@) </td>
+	  </tr>
+	<tr bgcolor="#FFFFFF"> 
+	  <td height="25">相关链接:&nbsp;<a href="http://bbs.phpmps.com/forumdisplay.php?fid=6" target="_blank"> 程序发布</a>&nbsp;&nbsp;<a href="http://bbs.phpmps.com/forumdisplay.php?fid=5" target="_blank"> 安装与使用</a>&nbsp;&nbsp;<a href="http://bbs.phpmps.com/forumdisplay.php?fid=17" target="_blank"> 模板交流</a>&nbsp;&nbsp;<a href="http://bbs.phpmps.com/forumdisplay.php?fid=15" target="_blank"> 意见反馈</a>&nbsp;&nbsp;<a href="http://bbs.phpmps.com/forumdisplay.php?fid=26" target="_blank"> 建站交流</a></td>
+	  </tr>
+	</table>
+	</td>
+  </tr>
+
+</table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language="JavaScript" src="js/common.js" type="text/javascript"></script>
+</style>
+</head>
+<body>
+<br>
+<table width=98% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+      <tr class=header>
+        <td height=25>&nbsp;广告列表&nbsp;&nbsp;&nbsp;&nbsp;<a href="ads.php?act=add">添加广告</a></td>
+      </tr>
+      <tr>
+        <td align=center bgcolor=#FFFFFF><table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+          <form action="<?=$PHP_SELF?>" method=post onSubmit="return checkform(this);">
+            <tr bgcolor=#CED4E8 align="center">
+              <td width="8%" height=25>编号</td>
+              <td width="18%">广告名称</td>
+              <td width="18%">广告位置</td>
+              <td width="11%">广告类型</td>
+              <td width="13%">添加时间</td>
+              <td width="7%">点击次数</td>
+              <td width="13%">操作</td>
+            </tr>
+<?
+foreach($ads as $val)
+{
+?>
+            <tr bgcolor=#FFFFFF align=center>
+              <td><input type='checkbox' name='id[]' value="<?=$val[adsid]?>"><?=$val[adsid]?></td>
+              <td><?=$val[adsname]?></td>
+              <td><?=$val[placename]?></td>
+              <td><?=$val[adstype]?></td>
+              <td><?=$val[addtime]?></td>
+              <td><?=$val[click]?></td>
+              <td><a href="ads.php?act=edit&id=<?=$val[adsid]?>" title="编辑">编辑 </a></td>
+            </tr>
+<?
+}
+?>
+            <tr bgcolor=#FFFFFF>
+              <td colspan=13 align=left bgcolor="#CED4E8">
+                    &nbsp;&nbsp;
+                    <input name="checkall" type="checkbox" id="checkall" onClick="CheckAll(this.form)"/>
+                    <input type="hidden" name="act" value="batch">
+                    <input type="submit" name="submit2" id="submit2" value=" 批量删除 " onClick="if(!confirm('确定要删除吗？\n\n此操作不可以恢复！'))return false;">             
+			</td>
+            </tr>
+          </form>
+        </table></td>
+      </tr>
+    </table>
+
+</body>
+</html>

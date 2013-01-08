@@ -1,0 +1,64 @@
+<html>
+<head>
+<link href=images/style.css rel=stylesheet type=text/css>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+</head>
+<script type="text/javascript" src="js/common.js"></script>
+<script type="text/javascript" src="../js/jquery.js"></script>
+<body>
+<?include tpl('here')?>
+<br/>
+<form name="post" method="post">
+<table width='100%' border='0' cellpadding='0' cellspacing='0'>
+<tr align='center' height='24'>
+<td id='TabTitle0' class='title2' onclick='ShowTabs(0)'>地图设置</td>
+<td>&nbsp;</td>
+</tr>
+</table>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder id='Tabs0' style='display:'>
+<tr>
+<td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">地图API：</div></td>
+    <td><input name="mapapi" type="text" id="mapapi" value="<?=$CFG[mapapi]?>" size="35">
+	  填写根据不同的地图商提供的API功能的JS地址。</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">地图标识：</div></td>
+    <td><input name="mapflag" type="text" id="mapflag" value="<?=$CFG[mapflag]?>" size="35">
+	  根据不同的地图标识，系统会载入不同的地图js</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">地图缩放等级：</div></td>
+    <td><input name="map_view_level" type="text" id="map_view_level" value="<?=$CFG[map_view_level]?>" size="35">
+	  不同的地图有自己的缩放等级，一般在1-15</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td><div align="right">地图API的编码：</div></td>
+    <td><input name="mapapi_charset" type="text" id="mapapi_charset" value="<?=$CFG[mapapi_charset]?>" size="35">
+	Google地图需要设置为UTF-8</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <script type="text/javascript" src="../js/msgbox/msgbox.js"></script>
+	<link href="../js/msgbox/msgbox.css" type="text/css" rel="stylesheet" />
+    <td><div align="right">默认地区：</div></td>
+    <td><input name="map" type="text" id="mappoint" value="<?=$CFG[map]?>" size="35">
+    <input name="markmap" type="button" value="标注地图" class="gray" onclick="Yubox.win('../do.php?act=small_map&mark=1&show=1&width=500&height=250&p={$CFG[map]}',500,340,'标注 <?=$CFG[mapflag]?> 地图',null,null,null,true);"> <font color=red>请先设置好地图API、地图标识、缩放等级，并提交。</font></td>
+  </tr>
+</table>
+</td></tr>
+</table>
+<br />
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 >
+<tr bgcolor=#FFFFFF>
+  <td colspan="2" height=7 align="center">
+      <input name="act" type="hidden" value="set_config">
+      <input name="submit" type=submit id="submit"  value=" 提交 " >
+      <input name="submit2"  type=reset id="submit2" value=" 重置 " >
+  </td>
+ </tr>
+</table>
+</form>
+</body>
+</html>

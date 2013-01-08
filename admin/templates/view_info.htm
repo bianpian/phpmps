@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.catname.value==""){
+		alert('请输入信息标题！');
+		document.form.catname.focus();
+		return false;
+	}
+	if(document.form.catname.value.length>50 || document.form.catname.value.length<2){
+		alert('信息标题请控制在2~30字之间!');
+		document.form.catname.focus();
+		return false;
+	}
+	if(document.form.cat.value==""){
+		alert('请选择地区！');
+		document.form.province.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 查看信息</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center><table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form method=post onSubmit="return chkform()" name="form" action="info.php">
+<tr>
+  <td width="27%" align="right">所属于分类：</td>
+  <td width="73%">
+    <?=$catname?>  </td>
+</tr>
+<tr>
+  <td align="right">信息标题：</td>
+  <td><?=$title?></td>
+</tr>
+<tr>
+  <td align="right">所在地区：</td>
+  <td><?=$areaname?></td>
+</tr>
+<tr>
+  <td align="right"><span class="postt1">有效期：</span></td>
+  <td><?=$enddate?></td>
+</tr>
+<tr>
+  <td align="right">信息详细内容：</td>
+  <td><textarea name=content cols=100 rows=10 class="postt2" id=content readonly="readonly"><?=$content?></textarea></td>
+</tr>
+<tr>
+  <td align="right">联系人：</td>
+  <td><?=$linkman?></td>
+</tr>
+<tr>
+  <td align="right">电话：</td>
+  <td><?=$phone?></td>
+</tr>
+<tr>
+  <td align="right">QQ：</td>
+  <td><?=$qq?></td>
+</tr>
+<tr>
+  <td align="right">邮箱：</td>
+  <td><?=$email?></td>
+</tr>
+<tr>
+  <td align="right">发布者IP：</td>
+  <td><?=$ip?></td>
+</tr>
+<tr>
+  <td align="right">发布者参考所在地区：</td>
+  <td><?=$postarea?></td>
+</tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

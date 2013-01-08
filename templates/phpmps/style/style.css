@@ -1,0 +1,64 @@
+
+body { background-image:url(../images/bg2.jpg); background-repeat:repeat-y; background-position:center top;}
+.color_gay,a.color_gay { color:#999;}
+a.color_gay:hover { color:#666;}
+#header .quick_menus,#nav .search_box .bd .search_zone { background-image:url(../images/hd_320.png); background-repeat:no-repeat;}
+#top_bar .quick_link ul li {background-image:url(../images/icon.gif); background-repeat:no-repeat;}
+
+.wrapper {width:950px;margin:0 auto; position:relative;}
+#top_bar { background:url(../images/bg_repeatX.png) repeat-x 0 0; height:26px; line-height:26px; border:1px solid #d4d4d4; border-top:0;}
+#top_bar .change_city { float:left; display:inline; margin-left:10px;}
+#top_bar .city_zone { color:#FF3300; font-weight:bold;}
+#top_bar .quick_link { float:right;}
+#top_bar .quick_link ul li { float:left; display:inline; padding:0 10px 0 13px; background-position:1px -116px;}
+#header .logo { float:left; width:200px; height:52px; margin:10px 15px 0 0; display:inline;}
+#header .logo a { width:258px; height:52px;}
+#header .quick_menu { float:left;  width:358px; height:37px; margin-top:25px; margin-left:150px; position:relative;}
+#header .quick_menu .bd { color:#ccc; text-align:left; margin:1px 0 0 2px;}
+#header .post { margin-top:16px;float:right}
+
+#nav { margin-top:10px;}
+#nav .nav_zone { padding-left:10px; height:33px; background-image:url(../images/change_bg.gif); background-repeat:no-repeat; overflow:hidden;}
+#nav .nav_zone li { float:left; width:92px; font-size:14px; font-weight:bold; line-height:33px;}
+#nav .nav_zone li a { display:block; height:33px; color:#fff; width:92px; background-image:url(../images/nav_bg_09.gif); background-repeat:no-repeat;}
+#nav .nav_zone a.current { color:#333;background-image:url(../images/current_bg.gif); background-repeat:no-repeat; padding-top:2px;}
+#nav .nav_zone a:hover { color:#333;background-image:url(../images/current_bg.gif); background-repeat:no-repeat; }
+
+#nav .search_box { background:url(../images/bg_960.png) no-repeat 0 0; height:42px;}
+#nav .search_box .bd { padding:8px 0 0 10px; text-align:left;}
+#nav .search_box .search_zone { background-position:0 0; height:25px; float:left; width:341px;}
+#nav .search_box .search_zone .searchText { border:0; background:#ccc; height:22px; line-height:20px; margin-left:35px; width:256px; background:none;}
+#nav .search_box .search_zone .searchSubmit { cursor:pointer; border:0; font-size:14px; height:25px; line-height:25px; font-weight:bold; color:#fff; width:50px; background:none;}
+#nav .search_box .search_hotkey { float:left; display:inline; margin:2px 0 0 10px;}
+#nav .search_box span.hotkeyTit { font-size:14px; color:#333; font-weight:bold;}
+#nav .search_box .search_hotkey a { margin-right:8px; color:#9f3c3c; text-decoration:underline;}
+#nav .search_box .search_hotkey a:hover { color:#bd5d5d;}
+#nav .location { float:left; color:#666; display:inline; margin:5px 5px 0 10px; background:url(../images/icon.gif) no-repeat 0 -219px; padding-left:20px;}
+#nav .location a { color:#36c; text-decoration:underline;}#nav .location a:hover { color:#f30; text-decoration:underline;}
+#nav .changeColor_bd { float:right; margin:12px 4px 0 0; display:inline; color:#a59770;}
+
+#content { margin-top:10px;}
+#footer { margin-top:10px; position:relative; border-top:1px solid #dedede; padding-top:5px;}
+#footer .logo_gay { float:left; display:inline; margin-right:12px; width:263px; height:57px; margin-top:10px;}
+#footer .logo_gay a { display:block; background:url(../images/logo_gay.gif) no-repeat 0 0; width:263px; height:57px; overflow:hidden; text-indent:-999em;}
+#footer .foot_info { float:center; width:566px; height:70px; text-align:center; line-height:22px;}
+#footer .foot_nav { color:#666;}
+#footer a { color:#0135af; text-decoration:underline;}
+#footer a:hover { color:#f30; text-decoration:underline;}
+#footer .bor { overflow:hidden; height:5px; background:url(../images/bg_repeatX.png) repeat-x 0 -133px; margin:8px 0;}
+#footer .foot_info { width:100%; height:70px; text-align:center; line-height:22px;}
+/* 登录层 */
+.ind_login_box { display:none; position:absolute; top:21px; left:-228px; overflow:hidden; width:360px; background-position:0 -492px; height:23px!important; height:24px; text-align:left; padding:0 8px; padding-top:3px!important; padding-top:2px; vertical-align:middle;}
+*+html .ind_login_box { padding-top:4px!important; height:22px!important;}
+.ind_login_box input { vertical-align:middle;}
+input.ind_log_input { border:1px solid #cccccc; border-top:1px solid #919191; border-left:1px solid #919191; height:16px; line-height:16px; color:#666; width:97px;}
+input.l_send { width:33px; height:18px; border:0; background-position:-240px -402px; color:#fff; line-height:16px; cursor:pointer;}
+input.l_cancel { width:33px; height:18px; border:0; background-position:-275px -402px; color:#fff; line-height:16px; cursor:pointer;}
+.display { display:block;}
+.login_test { border:1px solid #ddd; height:18px; line-height:18px; width:80px;}
+.ind_login_box,input.l_send,input.l_cancel  { background-image:url(../images/hd_320.png); background-repeat:no-repeat;}
+
+/* 7.18增加 */
+.email_input { border:1px solid #ccc; height:16px; background:#fff; line-height:16px; color:#333; width:90px;}
+.email_button { border:1px solid #ccc; height:18px; background:#fff; line-height:18px; color:#777; width:40px;}
+.site_service { float:right; margin:3px 5px 0 0; _display:inline; width:320px; height:19px; line-height:19px; text-align:right; padding-left:8px;}

@@ -1,0 +1,17 @@
+共{$pager[count]}记录&nbsp;&nbsp;当前{$pager[page]}/{$pager[page_count]}页&nbsp;&nbsp;{$pager[size]}/页  &nbsp;&nbsp;
+
+<!--{if $pager[first]}-->
+<a href="{$pager[first]}">第一页  </a>
+<!--{else}-->第一页  <!--{/if}-->
+
+<!--{if $pager[prev]}-->
+<a href="{$pager[prev]}">上一页  </a>
+<!--{else}-->上一页  <!--{/if}-->
+
+<!--{if $pager[next]}-->
+<a href="{$pager[next]}">下一页  </a>
+<!--{else}-->下一页  <!--{/if}-->
+
+<!--{if $pager[last]}-->
+<a href="{$pager[last]}">最后页  </a>
+<!--{else}-->最后页  <!--{/if}-->

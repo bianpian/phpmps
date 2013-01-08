@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+				<div id="contentfloat">
+        <div id="content">
+		<form action="member.php?act=send_check_email" method="post" name="form" >
+
+		<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+			<tr>
+				<td valign="top" style="width:70px; text-align:center;"><img src="templates/{$CFG[tplname]}/images/icon1.gif" width="53" height="53" alt="" /></td>
+				<td class="tx_title"><span>重要提示：</span><br />
+				系统发送邮件后，请尽快登陆您的邮箱进行验证！</td>
+			</tr>
+		</table>
+		<div class="smalltitle">邮箱验证（打 <span style="color:Red">*</span> 为必填项）</div>
+		<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+			<tr>
+				<td class="tditem" style="width:25%;"><span style="color:Red">*</span> 邮箱地址：</td>
+				<td class="tdcontent" style="width:75%">
+					<input name="email" type="text" id="email" class="text" value="{$userinfo[email]}" readonly />
+				</td>
+			</tr>
+		</table>
+		<div class="submit">
+		<input type=submit id=submit name=submit value=" 提 交 " >
+		</div>
+
+        </div>　
+		</div>
+		</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

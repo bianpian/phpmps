@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>发布成功</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/post.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/post.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content">
+		<div class="thd clearfix"><b>发布步骤：</b><span>1.选择分类</span><span>2.填写内容</span><span class="current">3.发布完成</span></div>
+		<div class="fbd clearfix" style="padding:40px 0;">
+			<div class="pic"><img src="templates/{$CFG[tplname]}/images/fabu3_03.png" alt="" /></div>
+			<div class="text">
+				<p><b>发布成功!</b>　
+				<a href="{$CFG[postfile]}">再发布一条</a>　
+				<a href="member.php?act=info">管理我的信息</a></p>
+				<p><b>提示：</b>您刚发布的信息可能需要审核才能显示，请您耐心等待。<br />　　　
+				 注册会员每成功发布一条信息加<b class="red_skin">{$CFG['post_info_credit']}</b>积分。<br />　　　
+				 如果您希望成交率更高，可以购买信息置顶、置顶等服务。</p>
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

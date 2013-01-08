@@ -1,0 +1,40 @@
+
+.edit_box { text-align:left; background-color:#f5faff;}
+.edit_box li { clear:both; font-size:14px; padding:5px 0; line-height:22px; border-bottom:1px solid #e4edf4; color:#333; zoom:1; overflow:hidden;}
+
+.edit_box li span.span_1 { display:block; float:left; text-align:right; width:100px; font-size:14px; font-weight:bold; color:#003366; margin-right:10px;}
+.edit_box li span.span_2 { display:block; float:left;}
+.edit_box li span.red_skin { font-size:20px; color:#ff0000;}
+.edit_box li a { text-decoration:underline;}
+.edit_box li input,.edit_box li select { font-size:12px;}
+.edit_box li input.text { border:1px solid #a7a6aa; height:22px; line-height:20px; color:#333;}
+.edit_box li input.button { height:28px; width:50px; line-height:20px; font-size:14px;}
+.text { border:1px solid #a7a6aa; height:22px; line-height:20px; color:#333;}
+.bigtitle{color:#ce0000; font-size:16px; font-weight:bold;}
+#contentfloat{float:right;width:100%;}
+#contentt{color:#333;padding:10px;padding-bottom:0px;}
+.tx_box{margin:15px 0; border:solid 1px #ffcb99; background-color:#fff8ee;}
+.tx_title{color:Red;}
+.tx_title span{font-weight:bold; font-size:14px;}
+.table{background-color:#E0E0E0;}
+.tditem{background-color:#FFFFFF; padding:5px; text-align:right;}
+.tdcontent{background-color:#FFF; padding:5px;}
+.smalltitle{border-left:3px solid #FF7300;background:#e2e2e2;padding:4px 20px 2px 15px;color:#333;font-size:14px;font-weight:bold}
+.tdcontent span{color:#999999}
+.submit{padding:15px; margin-left:200px;}
+
+.tablelist{background-color:#dddddd;}
+.tablelist .tabletitle{background-color:#f8f8f8; vertical-align:middle; text-align:center; height:25px;}
+.table_over{background-color:#f9f9f9;}
+.ptag {border-bottom: #e10000 2px solid}
+.ptag .card_line{width:3px;}
+.ptag .card_normal {border-right: #ddd 1px solid; border-top: #ddd 1px solid; background-image: url(../member/images/card_normal_bg.gif); border-left: #ddd 1px solid; color: #000; line-height: 22px; border-bottom: #ddd 1px; background-repeat: repeat-x; background-color: white; text-align: center}
+.ptag .card_down {border-right: #e10000 1px solid; padding-right: 0px; border-top: #e10000 1px solid; padding-left: 0px; background-image: url(../member/images/card_down_bg.gif); padding-bottom: 0px; border-left: #e10000 1px solid; color: white; line-height: 22px; padding-top: 3px; border-bottom: #e10000 1px solid; background-repeat: repeat-x; background-color: #e10000; text-align: center}
+.ptag .card_normal a {display:block; color:#000; padding-top: 3px; text-decoration: none}
+.ptag .card_normal a:link {display:block; color:#000; padding-top: 3px; text-decoration: none}
+.ptag .card_normal a:visited {display:block; color:#000; padding-top: 3px; text-decoration: none}
+
+
+
+
+

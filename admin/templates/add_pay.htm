@@ -1,0 +1,76 @@
+<link href=images/style.css rel=stylesheet type=text/css>
+<script LANGUAGE="javascript">
+<!--
+function CheckForm() 
+{
+    if(!checkradio(document.myform.typeid))
+	{
+		alert("请选择类型！");
+	   document.myform.typeid[0].focus()
+	   return false
+	}
+
+	if(document.myform.amount.value=="")
+	{
+	   alert("请输入金额！")
+	   document.myform.amount.focus()
+	   return false
+	}
+
+    if(!checkselect(document.myform.paytype))
+	{
+	   alert("请选择支付方式！");
+	   return false
+	}
+
+    if(document.myform.note.value=="")
+	{
+	  alert("请输入交易事由！")
+	  document.myform.note.focus()
+	  return false
+	}
+	document.myform.submit.disabled=true;
+	return true;
+}
+//-->
+</script>
+
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>增加支付</td>
+</tr>
+<tr bgcolor=#FFFFFF><td height="304" align=center >
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="pay.php?act=add" method=post name="form">
+  <tr bgcolor="#FFFFFF">
+    <td height="25" align="right">操作类型：</td>
+    <td><input type="radio" name="operation"  value="+" />增加
+	<input type="radio" name="operation"  value="-" />减少
+	</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">用户名：</td>
+    <td><input type="text" name="username" value="<?=$username?>" size="20"></td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">金额：</td>
+    <td><input type="text" name="amount" value="<?=$amount?>" size="10"> 元</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height=25 align="right">交易事由：</td>
+    <td><textarea name="note" cols="60" rows="8"><?=$note?></textarea></td>
+  </tr>
+
+	<tr bgcolor=#FFFFFF>
+	<td colspan="2" height=30 align="center">
+	 <input type="submit" name="dosubmit" value=" 提 交 " />&nbsp;&nbsp;
+	 <input type="reset" name="" value=" 重 置 " ></td>
+	</tr>
+</form>
+</table>
+</td>
+</tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+
+.site_info {}
+.site_info .hd { height:20px; line-height:20px; font-size:14px; padding:0 15px;}
+.site_info .bd { margin-top:5px; padding:0 10px; text-align:left;   line-height:15px; color:#333;}
+.site_info .bd p { margin-bottom:15px; }

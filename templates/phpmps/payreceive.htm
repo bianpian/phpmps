@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+<form action="member.php?act=send" method="post" name=form>
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="contentt">
+<div class="bigtitle">在线支付</div>
+
+<div class="smalltitle">修改注册信息</div>
+<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+    <tr>
+        <td class="tditem">订单号：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;">{$orderid}</span></td>
+    </tr>
+	<tr>
+        <td class="tditem">支付金额：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;">
+			{$total_amount}元
+			</span>
+		</td>
+    </tr><tr>
+        <td class="tditem">支付平台：</td>
+        <td class="tdcontent">
+            <span style="color:#666600;font-weight:bold;">{$payonline_setting[$paycenter]["name"]}</span>
+		</td>
+    </tr>
+{if $paystatus==0}
+    <tr>
+      <td class="tditem">支付结果：</td>
+      <td class="tdcontent">支付失败</td>
+    </tr>
+    <tr>
+      <td class="tditem">提示信息：</td>
+      <td class="tdcontent">Md5校验码错误！请联系管理员处理！</td>
+    </tr>
+{elseif $paystatus==1}
+    <tr>
+      <td class="tditem">支付结果：</td>
+      <td class="tdcontent"><font color="red">支付成功</font></td>
+    </tr>
+    <tr>
+      <td class="tditem">提示信息：</td>
+      <td class="tdcontent">系统已经给您的<font color='red'>帐号充值{$amount}元</font>{if $trade_fee}，<font color='red'>扣除手续费{$trade_fee}元</font>{/if}。</td>
+    </tr>
+{else}
+    <tr>
+      <td class="tditem">支付结果：</td>
+      <td class="tdcontent">支付失败</td>
+    </tr>
+    <tr>
+      <td class="tditem">支付结果：</td>
+      <td class="tdcontent">如果钱已从您的银行卡划出，请联系管理员处理！</td>
+    </tr>
+{/if}
+     
+</table>
+ </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

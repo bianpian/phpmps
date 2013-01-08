@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/article.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+	{template here}
+		<div class="col_main">
+			<div class="newsShow">
+				<div class="top_menu2 clearfix">
+					<ul>
+						<li><a href="javascript:copyToClipBoard();" class="send">转 发</a></li>
+						<li><a href="javascript:window.external.AddFavorite(window.location.href,document.title);" class="fav">收 藏</a></li>
+						<li><a href="javascript:window.print();" class="print">打 印</a></li>
+					</ul>
+				</div>
+				<h2>{$title}</h2>
+				<div class="news_info">发布时间: {$addtime}</div>
+				<div class="news_content">
+					{$content}
+				</div>
+				<div class="page_get clearfix">
+					<div class="left">上一条：<a href="{$pre['url']}">{$pre['title']}</a></div>
+					<div class="right">下一条：<a href="{$next['url']}">{$next['title']}</a></div>
+				</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 推荐阅读排行 -->
+			<div class="tipic_news">
+				<div class="hd">
+					<span>推荐阅读排行</span>
+				</div>
+				<div class="bd">
+					<ul>
+						{loop $pro_articles $article}
+						<li><a href="{$article[url]}">{$article[title]}</a></li>
+						{/loop}
+					</ul>
+				</div>
+				<div class="ft"></div>
+			</div>
+			{if $match_article}
+			<div class="html_box">
+				<div class="hd">
+					<span>相关新闻</span>
+				</div>
+				<ul>
+					{loop $match_article $row}
+						<li><a href="{$row[url]}">{$row[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+			{/if}
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.validatorMsg{padding:5px 7px 5px 18px;font-size:12px;line-height:30px;color:#999;}
+.validatorMsg{line-height:18px;color:#777;margin:0px 0 0 2px;}
+.validatorInit{/*background:url(images/explains.gif) no-repeat 0px 3px;*/height:17px; padding:4px 0px 2px 19px; line-height:16px; display:inline-block;}
+.validatorFocus{background:#E9F0FF url(images/explain.gif) no-repeat 0px 3px;height:17px; border:#c8d9fd solid 1px; padding:4px 5px 1px 20px; line-height:16px; display:inline-block;}
+.validatorError{background:#FFF2E9 url(images/inhibit.gif) no-repeat 0px 3px;height:17px; border:#e5c3c4 solid 1px; padding:4px 5px 1px 19px; line-height:16px; display:inline-block;}
+.validatorValid{background:url(images/valid.gif) no-repeat 0px 6px;height:17px; padding:4px 5px 1px 19px; line-height:20px; display:inline-block;}
+.validatorLoad{background:#E9FFEB url(images/onLoad.gif) no-repeat 0px 3px;height:17px; border:#cdfcd1 solid 1px; padding:4px 5px 1px 19px; line-height:16px; display:inline-block;}

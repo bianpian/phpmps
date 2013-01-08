@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language="JavaScript">
+function checkall(form)
+{
+	for(var i = 0;i < form.elements.length; i++) 
+	{
+		var e = form.elements[i];
+		if(e.name != 'chkall' && e.disabled != true) e.checked = form.chkall.checked;
+	}
+}
+</script>
+
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+  <tr class="header">
+    <td align=center height="25">数据库管理</td>
+  </tr>
+  <tr bgcolor=#FFFFFF>
+    <td height="25">&nbsp;<a href="database.php?act=exportdata">数据库备份</a> |  <a href="database.php?act=importdata">数据库恢复</a> </td>
+  </tr>
+</table><br>
+<?
+if($_REQUEST['act']=='importdata'){
+?>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+  <tr class="header">
+    <th height=25>数据库备份文件管理</th>
+  </tr>
+
+ <tr><td bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+<tr bgcolor=#CED4E8 align="center">
+<td width=24% align="center">文件名</td>
+<td align="center">大小</td>
+<td align="center">备份日期</td>
+<td align="center">操作</td>
+</tr>
+<? foreach($infos as $id => $file){?>
+<tr bgcolor=#FFFFFF align=center>
+<td width=24% align="center"><?=$file[filename]?></td>
+<td align="center"><?=$file[filesize]?></td>
+<td align="center"><?=$file[maketime]?></td>
+<td align="center"><a href="database.php?act=importdata&pre=<?=$file[pre]?>&submit=1">导入文件</a> | <a href=database.php?act=down&filename=<?=$file[filename]?>>下载文件</a> | <a href=database.php?act=delete&filename=<?=$file[filename]?>>删除文件</a></td>
+</tr>
+<?}?>
+</table>
+</td></tr>
+</table>
+
+<?
+}
+if($_REQUEST['act']=='exportdata' or $_REQUEST['act']=='optimize'){
+?>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+  <tr class="header">
+    <th height=25>数据库备份</th>
+  </tr>
+ <tr><td bgcolor=#FFFFFF>
+
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+<form name="myform" method="post"  action="database.php?act=exportdata">
+<tr bgcolor=#CED4E8 align="center">
+<td height=25  align="center"><input name='chkall' type='checkbox' id='chkall' onclick='checkall(this.form)' value='check' checked> </td>
+<td width=24% align="center">数据表名</td>
+<td align="center">类型</td>
+<td align="center">记录数</td>
+<td align="center">数据</td>
+<td align="center">索引</td>
+<td align="center">碎片</td>
+</tr>
+
+<? foreach($tables as $table){?> 
+<tr bgcolor=#FFFFFF align=center>
+<td align="center">
+<? 
+if($_REQUEST['act']=='exportdata')
+{
+	echo "<input type=checkbox name=tables[] value=$table[Name] checked>";
+}else{
+	echo $table['mylang'];
+}
+?>
+</td>
+<td align="left"><?=$table[Name]?></td>
+<td align="center"><?=$table[Engine]?></td>
+<td align="center"><?=$table[Rows]?></td>
+<td align="center"><?=$table[Data_length]?></td>
+<td align="center"><?=$table[Index_length]?></td>
+<td align="center"><?=$table[Data_free]?></td>
+</tr>
+<?}?>
+
+<tr bgcolor=#FFFFFF align=left>
+    <td colspan="7" bgcolor="#CED4E8" align="center">分卷备份设置</td>
+  </tr>
+  <tr>
+    <td align="right">每个分卷文件大小：</td>
+    <td colspan=6 class="tablerow"><input type=text name="sizelimit" value="2048" size=5>K</td>
+  </tr>
+   <tr>
+     <td class="tablerow" align="right">建表语句格式：</td>
+    <td colspan=6 ><input type="radio" name="sqlcompat" value="" checked> 默认 &nbsp; <input type="radio" name="sqlcompat" value="MYSQL40"> MySQL 3.23/4.0.x &nbsp; <input type="radio" name="sqlcompat" value="MYSQL41"> MySQL 4.1.x/5.x &nbsp;</td>
+  </tr>
+   <tr>
+     <td align="right">强制字符集：</td>
+    <td colspan=6><input type="radio" name="sqlcharset" value="" checked> 默认 &nbsp; <input type="radio" name="sqlcharset" value="latin1"> LATIN1 &nbsp; <input type="radio" name="sqlcharset" value='utf8'> UTF-8</option></td>
+  </tr>
+
+<tr bgcolor=#FFFFFF align=left>
+		  <td height="26" colspan="7" bgcolor="#CED4E8">
+
+
+<input type="submit" name="submit" value=" 确定备份 "  onClick="document.myform.action='database.php?act=exportdata&dosubmit=1'">
+数据库占用
+<?=$totalsize?> KB  </td>
+</tr>
+
+  </form>
+</table>
+
+  </td></tr>
+   </table>
+
+
+<? 
+}
+
+?>
+</body>
+</html>

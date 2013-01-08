@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">         
+<meta http-equiv="cache-control" content="no-cache">  
+<title>提示信息</title>
+<style type="text/css">
+<!--
+*{
+margin:0;
+padding:0;
+}
+body{
+text-align:center;
+}
+td{
+	font-size: 12px;
+	line-height:150%;
+	}
+h1{
+height:20px;
+line-height:20px;
+font-size:12px;
+text-align:center;
+background-color:#5C8ED7;
+color:#CC0000;
+}
+.box_border{
+margin:50px auto;
+border:1px solid #5C8ED7;
+width:450px;
+}
+a:link {
+	color: #0000FF;
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+	color: #003399;
+}
+a:hover {
+	text-decoration: underline;
+	color: #0066FF;
+}
+a:active {
+	text-decoration: none;
+	color: #0066FF;
+}
+.STYLE1 {color: #FFFFFF}
+-->
+</style>
+</head>
+<body>
+<div class="box_border">
+<h1 class="STYLE1">提示信息</h1>
+<table width="100%" cellspacing="5" cellpadding="0">
+  <tr>
+    <td align="center" bgcolor="#FFFFFF">
+
+<br/>
+<?=$msg?>
+<?php
+if($url=='goback' || $url=='') 
+{
+?>
+<br/><a href="javascript:history.back();" >[点击这里返回上一页]</a>
+<? }else{?>
+<br/><a href="<?=$url?>">如果您的浏览器没有自动跳转，请点击这里</a>
+<script language="javascript">setTimeout("window.location.replace('<?=$url?>')",'1250');</script>
+<?}?>
+
+    </td>
+  </tr>
+</table>
+</div>
+</body>
+</html>

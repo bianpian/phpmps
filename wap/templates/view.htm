@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title><?=encode_output($title)?></title>
+<style type="text/css">body{ font-size:13px;font-family:Arial, "宋体", sans-serif; line-height:150%;margin:0;padding:0;color:#585858}img{ border:none;}form{ margin:0; padding:0;}a{color:#0030F0;text-decoration:none}a:hover{color:#f00;}.pager{padding:1px 2px;border-top:1px solid #C3D9FF;background-color:#f1f9ff;margin-bottom:1px;}.pager a{ text-decoration:underline;}.footer { padding:5px 0 5px 0px;border-top:1px solid #feeb99;background-color:#FFFAD2; line-height:18px;}.selectstep{background-color:#ffc;}.lastpage{background-color:#ffc;} .sub-list{padding:1px 2px;background-color:#feeb99;border-top:1px solid #FFB877;border-bottom:1px solid #FFB877;}.sub-list a{ text-decoration:none;}.head{padding-left:3px; line-height:22px;margin:0px 0 0 0;}.bottom-search{background-color:#fff2bd;padding:3px 0 3px 8px;}.bg{border-top:1px solid #feeb99;border-bottom:1px solid #feeb99; background-color:#FFFDE8;}.bg1{border-bottom:1px solid #feeb99; background-color:#FFFDE8;}.r{color:red;}.m{ color:#006600; font-weight:bold;}.m2{ margin:5px 0;border-top:1px solid #d5d5d5;}.ml{ margin:2px 0;border-top:1px solid #f6841e;}.m3{ border-top:1px solid #feeb99; padding:5px 0 0 0; margin-top:5px}</style>
+
+</head><body><div class="head">
+<div class="sub-list"><a href="/wap">首页</a>>><a href=""><?php echo encode_output($catname); ?></a></div>
+<b><?=encode_output($title)?></b>[浏览<?=$click?>次]
+<br><div class="m2"></div>
+<?  
+if($custom) {
+	foreach($custom as $val) {
+		echo encode_output($val['name'])."：".encode_output($val['value'])."&nbsp;&nbsp;".encode_output($val['unit'])."<br>";
+	}
+}
+?>
+<?php echo encode_output($content); ?>
+<div class="m2"></div>
+<?if($phone) {?>
+电话:<span class="m"><?=$phone?></span><br><?}?>
+联系人:<?=encode_output($linkman)?><br>
+<?if($qq) {?>qq:<?=$qq?><br><?}?>
+<?if($email) {?>email:<?=$email?><br><?}?>
+发布时间:<?=$postdate?>
+<div class="m2"></div>
+</div>
+</body>
+</html>

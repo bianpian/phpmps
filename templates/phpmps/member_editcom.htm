@@ -1,0 +1,196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/user.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/useredit.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+</head>
+<script>
+function chkedit(){
+	if(document.edit.title.value==""){
+		alert('请输入信息标题！');
+		document.edit.title.focus();
+		return false;
+	}
+	if(document.edit.title.value.length>50 || document.edit.title.value.length<2){
+		alert('信息标题请控制在2~30字之间!');
+		document.edit.title.focus();
+		return false;
+	}
+	if(document.edit.areaid.value==0){
+		alert('请选择地区！');
+		document.edit.areaid.focus();
+		return false;
+	}
+	if(document.edit.linkman.value==""){
+		alert('请填写联系人！');
+		document.edit.linkman.focus();
+		return false;
+	}
+	if(document.post.content.value==""){
+		alert('内容不能为空！');
+		document.post.content.focus();
+		return false;
+	}
+	if(document.edit.phone.value=="" && document.edit.qq.value=="" && document.edit.email.value==""){
+		alert('联系方式必须填写一项！');
+		document.edit.phone.focus();
+		return false;
+	}
+	if(document.edit.phone.value!="" && document.edit.phone.value<7){
+		alert('电话不能少于7位');
+		document.edit.phone.focus();
+		return false;
+	}
+	if(isNaN(document.edit.phone.value)){
+		alert('电话必须是数字');
+		document.edit.phone.focus();
+		return false;
+	}
+	if(document.edit.qq.value!="" && document.edit.qq.value<5){
+		alert('qq必须大于5位');
+		document.edit.qq.focus();
+		return false;
+	}
+
+	if(document.edit.qq.value!="" &&  isNaN(document.edit.qq.value)){
+		alert('qq必须是数字');
+		document.edit.qq.focus();
+		return false;
+	}
+}
+</script>
+<Style>
+#picsst{ width:100%; margin:0;}
+#picsst ul{width:100%;margin:0;padding:0; }
+#picsst ul li{ clear:none;margin:0;width:210px; float:left;border-bottom:none;}
+</style>
+<body class="home-page">
+<div class="wrapper">
+<!--{template header}-->
+	<!-- 主体 -->
+	<div id="content" class="clearfix">
+		<div class="col_main">
+			<div class="edit_box">
+			<div id="contentfloat">
+        <div id="content">
+
+<div class="bigtitle">修改企业信息</div>
+<table width="100%" cellpadding="0" cellspacing="0" class="tx_box">
+	<tr>
+		<td valign="top" style="width:70px; text-align:center;"><img src="templates/{$CFG[tplname]}/images/icon1.gif" width="53" height="53" alt="" /></td>
+		<td class="tx_title"><span>重要提示：</span><br />
+		以下内容，打 * 为必填项<br />
+		</td>
+	</tr>
+</table>
+<br />
+  <form name="post" method="post" onSubmit="return chkedit()" action="member.php" enctype="multipart/form-data">
+	<table border="0" cellpadding="1" cellspacing="1" class="table" width="100%">
+	<tr > 
+      <td class="tditem" height="25"><font color="#FF0000">*</font>信息标题： 
+      </td>
+      <td   class="tdcontent"> <input name="comname" type="text" size="50" value="{$comname}" class="text"></td>
+
+	  <td class="tditem" height="25"><font color="#FF0000">*</font>企业分类： 
+      </td>
+      <td  class="tdcontent">{$catname}</td>
+    </tr>
+	<tr > 
+      <td class="tditem"  height="25" width=13%><font color="#FF0000">*</font>选择地区： 
+      </td>
+      <td class="tdcontent" width=40%> 
+		<select name=areaid id="areaid">
+		<option value=0>请选择地区</option>
+		{$com_area}
+		</select>
+	  </td>
+	  <td class="tditem" height="25"><font color="#FF0000">*</font>营业时间： 
+      </td>
+      <td  class="tdcontent"><input name=hours class="text"  type=text id=hours value="{$hours}" size="20" ></td>
+    </tr>
+	<tr > 
+      <td class="tditem" height="25"><font color="#FF0000">*</font>企业图片： 
+      </td>
+      <td   class="tdcontent" colspan=3> 
+	  <img src="{$thumb}" width=150px height=30px>
+	  <input type="file" class="text" size="30" name="thumb" id="thumb" /></td>
+	  
+    </tr>
+	<tr > 
+      <td  class="tditem" height="25"><font color="#FF0000">*</font>内容描述： 
+      </td>
+      <td class="tdcontent" colspan="3"> <textarea name="introduce" class="text" style="width:600px;height:60px;">{$introduce}</textarea></td>
+    </tr>
+	<tr > 
+      <td  class="tditem" height="25">联系人： 
+      </td>
+      <td class="tdcontent" > <input type="text" name="linkman" value="{$linkman}" class="text"></td>
+	   <td class="tditem"  height="25">电话： 
+      </td>
+      <td class="tdcontent" > <input type="text" name="phone" value="{$phone}" class="text"></td>
+    </tr>
+
+	<tr > 
+      <td  class="tditem" height="25">邮件： 
+      </td>
+      <td class="tdcontent" > <input type="text" name="email" value="{$email}" class="text" size=50 ></td>
+	   <td  class="tditem" height="25">联系QQ： 
+      </td>
+      <td class="tdcontent" > <input type="text" name="qq" value="{$qq}" class="text"></td>
+    </tr>
+	
+	<tr > 
+	  <td  class="tditem" height="25">联系地址： 
+      </td>
+      <td class="tdcontent"><input name="address" type="text" id="address" class="text" size=50 value="{$address}"/></td>
+	  
+	  <td  class="tditem" height="25">传真： 
+      </td>
+      <td class="tdcontent" > <input type="text" name="fax" value="{$fax}" class="text"></td>
+    
+    </tr>
+	<!--{if !empty($mappoint)}-->
+	<script type="text/javascript" src="js/msgbox/msgbox.js"></script>
+	<link href="js/msgbox/msgbox.css" type="text/css" rel="stylesheet" />
+	<tr > 
+      <td  class="tditem" height="25">地图： 
+      </td>
+      <td class="tdcontent" colspan="3"><input id='mappoint' name='mappoint' type=text maxLength=50 value="<?=$mappoint?>" >
+	<input name="markmap" type="button" value="标注地图" class="gray" onclick="Yubox.win('do.php?act=small_map&mark=1&width=500&height=250&p={$CFG[map]}',500,340,'标注地图',null,null,null,true);"></td>
+    </tr>
+	<!--{/if}-->
+	
+</table>
+<div class="submit">
+<input type=hidden name=id value=<?=$comid?>>
+<input type=hidden name=act value=updatecom>
+<input type="submit" name="submit" value=" 确认无误，提交 " id="submit" />
+    </div>
+</form>
+        </div>　
+	</div>
+			</div>
+		</div>
+		<div class="col_sub">
+			<!-- 侧边栏菜单 开始 -->
+			<div class="side_bar">
+				<ul>
+					<!--{template member_left}-->
+				</ul>
+			</div>
+			<!-- 侧边栏菜单 结束 -->
+		</div>
+	</div>
+	</form>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>
+</body>
+</html>

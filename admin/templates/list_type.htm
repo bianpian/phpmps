@@ -1,0 +1,47 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href="images/style.css" rel=stylesheet type=text/css>
+</head>
+<body>
+<br/>
+<table width=100% border=0 align=center cellpadding=0 cellspacing=0>
+<tr><td>
+
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+	
+	<tr class=header>
+	  <td height=25>&nbsp;<span align="left"><?=$here?></span>&nbsp;&nbsp;&nbsp;&nbsp;<span align="right"><a href="<?=$action['href']?>"><?=$action['name']?></a></span>
+	  </td>
+	</tr>
+	
+	<tr><td colspan="2" align=center bgcolor=#FFFFFF>
+	<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#DBEAF5">
+	
+	<tr bgcolor=#CED4E8 align="center">
+	  <td width="151" height=25>编号</td>
+	  <td width="200">名称</td>
+	  <td width="120">排序</td>
+	  <td width="152">操作</td>
+	</tr>
+<?php
+foreach($type AS $type)
+{
+?>
+	<tr bgcolor=#FFFFFF align="center">
+	  <td><?=$type[typeid]?></td>
+	  <td><?=$type[typename]?></td>
+	  <td><?=$type[listorder]?></td>
+	  <td><a href="type.php?act=edit&id=<?=$type[typeid]?>"> 编辑 </a> | <a href="type.php?act=delete&module=<?=$type[module]?>&id=<?=$type[typeid]?>" onClick="if(!confirm('确定要删除吗？\n\n此操作不可以恢复！'))return false;" > 删除 </a></a>
+	  </td>
+	</tr>
+<?
+}
+?>
+    </table>
+    </td></tr>
+</table>
+</td></tr>
+</table>
+</body>
+</html>

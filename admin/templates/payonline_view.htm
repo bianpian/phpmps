@@ -1,0 +1,58 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+	<tr class=header>
+	<th colspan="2">财务操作</th>
+	</tr>
+	<tr><td bgcolor=#FFFFFF align=center>
+	<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+    <tr bgcolor=#FFFFFF> 
+      <td width="28%"><div align="right">用户名</div></td>
+      <td width="72%"><a href="?mod=member&file=member&action=view&username=<?=urlencode($username)?>"><?=$username?></a></td>
+    </tr>
+     <tr> 
+      <td><div align="right">流水号</div></td>
+      <td><?=$orderid?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">支付金额</div></td>
+      <td><font color="red"><?=($amount+$trade_fee)?>元</font> <?php if($trade_fee){ ?>（充值<?=$amount?>元，手续费<?=$trade_fee?>元） <?php } ?> </td>
+    </tr>
+     <tr> 
+      <td><div align="right">支付结果</div></td>
+      <td><?=$STATUS[$status]?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">下单时间</div></td>
+      <td><?=$sendtime?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">支付时间</div></td>
+      <td><?=$receivetime?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">IP</div></td>
+      <td><?=$ip?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">联系人</div></td>
+      <td><?=$contactname?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">E-mail</div></td>
+      <td><?=$email?></td>
+    </tr>
+     <tr> 
+      <td><div align="right">电话</div></td>
+      <td><?=$telephone?></td>
+    </tr>
+	</table>
+</td>
+</tr>
+</table>
+</body>
+</html>

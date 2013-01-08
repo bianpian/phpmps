@@ -1,0 +1,108 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.adsname.value==""){
+		alert('请输入广告名称！');
+		document.form.adsname.focus();
+		return false;
+	}
+	if(document.form.placeid.value=="0"){
+		alert('请选择广告位！');
+		document.form.placeid.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table width=100% border=0 align=center cellpadding=3 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>修改广告</td>
+</tr>
+<tr><td align=center bgcolor=#FFFFFF>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=4>
+<form action="ads.php?act=update&adsid=<?=$ads[adsid]?>&adstype=<?=$ads[adstype]?>" method=post enctype="multipart/form-data" name="form" onSubmit="return chkform()">
+<tr>
+  <td width="33%" align="right">广告名称： </td>
+  <td width="67%"><input name="adsname" type="text" id="adsname" value="<?=$ads[adsname]?>" size="30">*</td>
+</tr>
+<tr>
+  <td align="right">所属广告位： </td>
+  <td>
+  <select name="placeid" id="placeid">
+    <option value="0">选择广告位</option>
+	<?
+	foreach($ads_place as $val)
+	{
+
+	  if($ads[placeid]==$val[placeid])$selected="selected";
+	  echo "<option value=$val[placeid] $selected>$val[placename]</option>";
+	  $selected = '';
+	}
+	?>
+  </select>
+    *</td>
+</tr>
+<tr>
+  <td align="right">广告类型：</td>
+  <td><?echo $type[$ads[adstype]];?></td>
+</tr>
+<?if($ads[adstype]=='1' || $ads[adstype]=='2'){?>
+<tr id="adsurl">
+  <td align="right">广告链接： </td>
+  <td><input name="adsurl" type="text" id="adsurl" value="<?=$ads['adsurl']?>" size="30"></td>
+</tr>
+<?}
+if($ads[adstype]=='2'){
+?>
+<tr id="image" >
+  <td align="right">上传图片： </td>
+  <td><input name="image" type="file" id="image">如果重新上传，需删除下方图片地址中的内容。</td>
+</tr>
+<tr id="imageurl">
+  <td align="right">图片地址： </td>
+  <td><input name="imageurl" type="text" id="imageurl" value="<?=$ads[adscode]?>" size="30"></td>
+</tr>
+<?
+}
+if($ads[adstype]=='3'){?>
+<tr id="flash">
+  <td align="right">上传Flash： </td>
+  <td><input name="flash" type="file" id="flash">如果重新上传，需删除下方flash地址中的内容。</td>
+</tr>
+<tr id="flashurl" >
+  <td align="right">Flash地址： </td>
+  <td><input name="flashurl" type="text" id="flashurl" value="<?=$ads[adscode]?>" size="30"></td>
+</tr>
+<?}?>
+<?if($ads[adstype]=='1'){?>
+<tr id="adscontent">
+  <td align="right">广告内容：</td>
+  <td><input name="adscontent" type="text" id="adscontent" value="<?=$ads[adscode]?>" size="30"></td>
+</tr>
+<?
+}
+if($ads[adstype]=='4'){?>
+<tr id="adscode">
+  <td align="right">广告代码：</td>
+  <td><textarea name="adscode" cols="80" rows="6" id="adscode"><?=$ads[adscode]?></textarea>
+    例如google,baidu广告</td>
+</tr>
+<?}?>
+<tr>
+  <td align="right">投放人信息：</td>
+  <td><textarea name="postman" cols="80" rows="5" id="postman"><?=$ads[postman]?></textarea></td>
+</tr>
+<tr><td height="29" colspan="2" align="center">
+<input type="submit"  value=" 提 交 " />
+&nbsp;&nbsp; 
+<input type="reset" value=" 重 置 " > 
+</td></tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

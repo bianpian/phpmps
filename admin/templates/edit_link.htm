@@ -1,0 +1,57 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.webname.value==""){
+		alert('请输入网站名称');
+		document.form.webname.focus();
+		return false;
+	}
+	if(document.form.url.value==""){
+		alert('请输入url！');
+		document.form.url.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25>&nbsp;&nbsp;添加友情链接</td>
+</tr>
+<tr><td height="136" align=center bgcolor=#FFFFFF>
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+<form method="post" name="form" action="link.php?act=update" onSubmit="return chkform()">
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=2><div align="right">网站名称：</div></td>
+  <td width="60%"><input name=webname type=text id="webname" value="<?=$link['webname']?>" size=45>
+    * </td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=2><div align="right">网址：</div></td>
+  <td><input name=url type=text id="url" value="<?=$link['url']?>" size=45>
+    * 前面必须加http://</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=12><div align="right">排序：</div></td>
+  <td><input name=order type=text id="order" value="<?=$link['linkorder']?>" size=45></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=12><div align="right">网站Logo：</div></td>
+  <td><input name=logo type=text id="logo" value="<?=$link['logo']?>" size=45>
+前面必须加http://</td>
+</tr>
+<tr bgcolor=#FFFFFF><td colspan=3 height=30 align=center>
+ <input type="hidden" name="linkid" value="<?=$link['id']?>">
+ <input type="submit" name="addlink" value=" 提 交 " />&nbsp;
+ <input type=reset name=submit2 value=" 重置 " > 
+</td></tr>
+</form>
+</table></td>
+</tr>
+</table>
+</body></html>

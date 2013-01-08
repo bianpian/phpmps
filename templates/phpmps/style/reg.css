@@ -1,0 +1,19 @@
+
+#regk { width: 937px; margin-top: 10px; margin-right: auto; margin-bottom: 30px; margin-left: auto; background-image: url(../images/bot.jpg); background-repeat: no-repeat; background-position: 0px bottom; padding-bottom: 5px; text-align:left; }
+.tit10 { color: #656565; float: right; padding-right: 10px; line-height: 20px; margin-top: 40px; }
+.tit1 span { color: #FF0000; }
+.tit20 { color: #316ac3; line-height: 20px; float: left; margin-top: 103px; font-weight: bold; font-size: 14px; padding-left: 130px; }
+.regc { border-width: 1px; border-style: solid; border-color: #fa9308; padding-left: 76px; color: #373735; line-height: 40px; font-size: 14px; }
+#regz { color:#fff; font-size:14px; font-weight:bold; background: #FF6600; padding-left:10px; height:20px }
+
+.regc_1 { line-height: 20px; padding-top: 10px; padding-bottom: 10px; padding-left: 30px; }
+.regc_1 .left { display:block; float:left; width:113px; line-height:22px;}
+.regc_1 img { vertical-align:middle;}
+.regc_1 input { vertical-align:middle;}
+.regc_2 { line-height: 20px; padding-top: 10px; padding-bottom: 3px; font-size: 12px; padding-left: 30px; border-bottom:1px solid #cccccc; }
+.regc_2 span { color: #3269c4; font-size: 14px; font-weight: bold; }
+.red { color: #FF0000; }
+.regc_1 .input0 { border: 1px solid #a7a6ab; width: 224px; height: 22px; line-height:22px; vertical-align:middle; }
+.regc_1 .input1 { border: 1px solid #a7a6ab; width: 124px; height: 22px; line-height:22px; vertical-align:middle; }
+.regc_1 a { color: #083ff2; text-decoration: underline; }
+.regc_1 a:hover { color: #FF0000; }

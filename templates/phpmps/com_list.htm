@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={$charset}" />
+<title>{$seo['title']}</title>
+<meta name="Keywords" content="{$seo['keywords']}">
+<meta name="Description" content="{$seo['description']}">
+<link href="templates/{$CFG[tplname]}/style/reset.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/style.css" type="text/css" rel="stylesheet" />
+<link href="templates/{$CFG[tplname]}/style/com.css" type="text/css" rel="stylesheet" />
+<script src="js/common.js"></script>
+<script src="js/jquery.js"></script>
+</head>
+<body class="home-page">
+<div class="wrapper">
+	<!--{template header}-->
+	<!-- 主体 -->
+	<div class=divline></div>
+	<div id="content">
+		{template here}
+		<div class="banner_shop"><!--广告--></div>
+		<div class="clearfix">
+			<div class="col_main">
+				<div class="shop_module">
+					{if $area_arr}
+					<div class="address">区域查找：
+					<!--{loop $area_arr $val}-->
+						<a href={$val[url]}>{$val[areaname]}</a>&nbsp;
+					<!--{/loop}-->
+					</div>
+					{/if}
+					<div class="bd">
+						<ul class="clearfix">
+							{loop $articles $val}
+							<li>
+							  <div class="list_module">
+								<div class="pic"><a href="{$val[url]}" target="_blank"><img src="{$val[thumb]}" alt="{$val['comname']}" border="0"  width="140" height="60"/></a></div>
+								<b><a href="{$val[url]}" target="_blank">{$val[sname]}</a></b> <span class="cont">{$val[introduce]}...</span>
+							  </div>
+							</li>
+							{/loop}
+						</ul>
+					</div>
+				  <div class="pagination_module clearfix">
+					  <span class="right"><!--{template page}--></span>					</div>
+				</div>
+			</div>
+			<div class="col_sub">
+				<div class="categories_nav">
+					<div class="hd">商家分类导航</div>
+					<div class="bd">
+						<ul>
+						<li><a href="postcom.php" ><img src="templates/{$CFG[tplname]}/images/postcom.gif"></a>
+						</li>
+						<!--{loop $com_cats $key=>$cat}-->
+						<li><a href="javascript:void({$key});" class="xias" onclick="showHide(this,'items{$key}');">{$cat['catname']}</a>
+						  <ul id="items{$key}" style="display: block;">
+							<!--{if !empty($cat[children])}-->		
+								<!--{loop $cat[children] $chi}-->
+									<li><a href="{$chi[url]}" >{$chi['name']}</a></li>
+								<!--{/loop}-->
+							<!--{/if}-->
+						  </ul>
+						</li>
+						<!--{/loop}-->
+						</ul>
+					</div>
+				</div>
+				<!--
+				<div style=" margin-top:5px;border:1px solid #f36100; padding:10px; padding-top:5px; text-align:left;">
+				XXXXXXXXXXXX
+				</div>
+				-->
+			</div>
+		</div>
+	</div>
+	<!-- 主体 结束 -->
+	<!--{template footer}-->
+</div>

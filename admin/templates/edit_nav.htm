@@ -1,0 +1,70 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>">
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.navname.value==""){
+		alert('请输入导航名称');
+		document.form.navname.focus();
+		return false;
+	}
+	if(document.form.url.value==""){
+		alert('请输入url！');
+		document.form.url.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<br />
+<table width=100% border=0 align=center cellpadding=0 cellspacing=1 class=tableborder>
+
+<tr class=header>
+  <td height=25>&nbsp;&nbsp;编辑导航</td>
+</tr>
+
+<tr>
+<td height="133" align=center bgcolor=#FFFFFF>
+
+<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#FFFFFF">
+<form method="post" name="form" action="nav.php?act=update" onSubmit="return chkform()">
+
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=25><div align="right">导航名称：</div></td>
+  <td width="60%"><input name=navname type=text id="navname" value="<?=$nav['navname']?>" size=32>
+    *</td>
+ </tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=25><div align="right">跳转网址：</div></td>
+  <td><input name=url type=text id="url" value="<?=$nav['url']?>" size=45>
+    * 非本地链接前面必须加http://</td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=12><div align="right">在新窗口中打开：</div></td>
+  <td><label>
+    <select name="target" id="target">
+      <option value="_blank" <? if($nav[target]=='_blank')echo "selected=selected"; ?>>是</option>
+      <option value="_self" <? if($nav[target]=='_self')echo "selected=selected"; ?>>否</option>
+    </select>
+  </label></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width="40%" height=12><div align="right">排序：</div></td>
+  <td><input name=order type=text id="order" value="<?=$nav['navorder']?>" size=10></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td colspan=3 height=27 align=center>
+ <input type="hidden" name="id" value="<?=$nav['id']?>">
+ <input type="submit" name="addLink" value=" 提 交 " />&nbsp;
+ <input type=reset name=submit2 value=" 重置 " >  </td>
+</tr>
+</form>
+</table>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

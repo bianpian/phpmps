@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<?=$charset?>" />
+<link href=images/style.css rel=stylesheet type=text/css>
+<script language=javascript>
+function chkform(){
+	if(document.form.password.value==""){
+		alert('请输入密码！');
+		document.form.password.focus();
+		return false;
+	}
+	if(document.form.password.value.length>50 || document.form.password.value.length<6){
+		alert('密码请控制在6~30字之间!');
+		document.form.password.focus();
+		return false;
+	}
+	if(document.form.repassword.value==""){
+		alert('请输入重复密码！');
+		document.form.repassword.focus();
+		return false;
+	}
+	if(document.form.repassword.value.length>50 || document.form.repassword.value.length<6){
+		alert('重复密码请控制在6~30字之间!');
+		document.form.repassword.focus();
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<br>
+<table width=100% border=0 align=center cellpadding=1 cellspacing=1 class=tableborder>
+<tr class=header>
+  <td height=25> 修改资料</td>
+</tr>
+<tr><td bgcolor=#FFFFFF align=center>
+<table width=100% align=center border=0 cellspacing=1 cellpadding=0 bgcolor="#FFFFFF">
+<form method=post name="form" action="admin.php?act=repass" onSubmit="return chkform(this)">
+<tr bgcolor=#FFFFFF>
+<td width=40% height=25 bgcolor="#FFFFFF"><div align="right">管理员名称：</div></td>
+<td width="60%"><div align="left">
+  <?php echo $_SESSION['adminname'];?>
+  &nbsp;</div></td>
+</tr>
+<tr bgcolor=#FFFFFF>
+  <td width=40% height=25 bgcolor="#FFFFFF"><div align="right">新密码：</div></td>
+  <td><div align="left">
+  <input name="password" type="password" id="password" value="" size="35" maxlength="100" />
+</div></td></tr>
+<tr bgcolor=#FFFFFF>
+<td width=40% height=25 bgcolor="#FFFFFF"><div align="right">重复新密码：</div></td>
+<td><div align="left">
+  <input name="repassword" type="password" id="repassword" value="" size="35" maxlength="40">
+</div></td></tr>
+<tr bgcolor=#FFFFFF><td colspan="2" height=30 align="center">
+ <input type="submit" name="submit"  value=" 提 交 " /> 
+ <input type=reset name="" value=" 重置 " >
+</td></tr>
+</form>
+</table></td>
+</tr></table>
+</body>
+</html>

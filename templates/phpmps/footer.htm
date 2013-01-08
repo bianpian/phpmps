@@ -1,0 +1,26 @@
+	<!-- 页脚 -->
+<div id="footer" class="clearfix">
+  <div class="foot_info">
+    <p class="foot_nav">
+	<a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('<?=$CFG[weburl]?>');return(false);" style="cursor:pointer;">设为首页</a> | 
+	<a href=javascript:window.external.AddFavorite('{$CFG[weburl]}','{$CFG[webname]}')>加为收藏</a> |  <a href="./wap">wap</a> | 
+	<!--{loop $about $key $val}-->
+		<a href={$val[url]} target=_blank>{$val[title]}</a>
+		{if $key<(count($about)-1)} | {/if}
+	<!--{/loop}-->
+	</p>
+    Powered by <a href=http://www.phpmps.com target=_blank><strong>Phpmps</strong></a>&copy; 2008-2009 Phpmps Inc. 
+	<!--{if !empty($CFG['qq'])}-->
+	QQ:	
+	<!--{loop $CFG['qq'] $qq}-->
+		<a href="http://wpa.qq.com/msgrd?V=1&amp;Uin={$qq}&amp;Site={$CFG[webname]}&amp;Menu=yes" target="_blank"><img style="display:inline" src="http://wpa.qq.com/pa?p=1:{$qq}:4" height="16" border="0" alt="QQ" />{$qq}</a>
+	<!--{/loop}-->
+	<!--{/if}--><br />  
+	{$CFG['copyright']}&nbsp;&nbsp; ICP备案号：<a href=http://www.miibeian.gov.cn target=_blank>{$CFG[icp]}</a>&nbsp;&nbsp; <!--{if $CFG['count']}-->
+	{$CFG[count]}
+	<!--{/if}--></div>
+  <a href="rss.php"><img src="templates/{$CFG[tplname]}/images/rss_xml.gif" border="0" /></a>
+  <div class="clear"></div>
+  <div class="bor"></div>
+</div>
+<!-- 页脚 结束 -->
